@@ -20,19 +20,33 @@
 				- server: "<local hostname>:8500"				
 			
 2. Predefined node configurations. 
-	In the "mantis.hcl" file two node configurations have been defined:
+	In the "mantis.hcl" file four distribution dependent node configurations have been defined:
 
+	- "bootstrap"
+	- "faucet"
 	- "miner-disabled"
 	- "miner-enabled"
 
 	For these node configurations mantis distributions directories are provided under:
-
+	
+	./distributions/bootstrap/
+	./distributions/faucet/
 	./distributions/miner-disabled/
 	./distributions/miner-enabled/
 
-	In theese directories the content of the mantis client distribution directory has been placed and the configuration has been changed accordingly to the configurations name. For "miner-enabled" mining and metrics (for prometheus) had been enabled. 
+	In theese directories the content of the mantis client distribution directory has been placed and the configuration has been changed accordingly to the configurations name. 
+	
+	- "bootstrap" :
+		For mantis nodes to be able	to connect to each other, they need a set of bootstrap nodes, which are included into the distributions configuration files. Since we want to be able to spawn as many nodes as we went, one bootstrap node has been configured, to which all other nodes will initially connect. The configuration consists of entry in mantis-pottery.hcl file and the persistance layer ($HOME/.mantis directory) enabled through "./provisioning/bootstrap/dot.mantis" directory. It means, that even for the bootstrap node, one can fill it's "./distributions/bootstrap/" directories with own (feature branch or configuration) specific distribution. 
 
-	!IMPORTANT! These custom node configurations are provided for the sake of testing the setup and can be reused or deleted after own custom node configurations have been defined. !IMPORTANT!
+	- "faucet" :
+		Besides the distribution, a keystore directory has been defined under "./provisioning/faucet/keystore/"
+	
+	- "miner-disabled/enabled" :
+		This nodes are typical nodes, which require no own "provisioning" directories"
+		For "miner-enabled" mining and metrics (for prometheus) had been enabled. 
+
+	!IMPORTANT! These custom node configurations are provided for the sake of testing the setup and can be reused or deleted after own custom node configurations have been defined. A minimal setup would include solely the bootstrap node. !IMPORTANT!
 
 3. Network configuration 
 
@@ -106,5 +120,4 @@
 	If you need faucet to work, please fill that directory accordingly.
 
 9. Persistence is enabled only for the "bootstrap" node. If you want to enable persistance for other nodes, you can do it analogous. 
-
 
