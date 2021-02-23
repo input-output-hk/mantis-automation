@@ -102,6 +102,6 @@
 
 	If you need faucet to work, please fill that directory accordingly.
 
-9. Persistence will be added later. For now -> no persistence!.
+9. Persistence is enabled only for the "bootstrap" node. If you want to enable persistance for other nodes, you can do it analogous. 
 
 
