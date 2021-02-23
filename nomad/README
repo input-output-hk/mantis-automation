@@ -35,6 +35,9 @@
 	!IMPORTANT! These custom node configurations are provided for the sake of testing the setup and can be reused or deleted after own custom node configurations have been defined. !IMPORTANT!
 
 3. Network configuration 
+
+	!UPDATE! A private network by the name "pottery" has been defined. (./mantis-pottery.hcl) !UPDATE!
+
 	In order to start a test network, you either need to configure a new one, or decide which one to use (one of the mantis/conf/*.conf). This setup has been tested with the "sagano" network. The network name parameter is to be set in the config section of all the specific nodes configurations in the "./mantis.hcl" file:
 
 	group "miner-disabled" {
