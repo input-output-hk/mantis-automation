@@ -1,5 +1,6 @@
 steps:
   - plugins:
     - docker-compose#3.7.0:
-      config: 
+      config:
+        - run: checkpointing 
         - checkpointing/docker-compose.yml 
