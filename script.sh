@@ -5,7 +5,7 @@ echo "--- :package: Build job checkout directory"
 pwd
 ls -la
 cd checkpointing
-docker build .
+sudo docker build .
 
 echo "--- :evergreen_tree: Build job environment"
 
