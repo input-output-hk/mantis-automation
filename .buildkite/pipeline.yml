@@ -1,5 +1,5 @@
 steps:
-  - label: ":hammer: Example Script"
+  - label: ":hammer: My Script"
     command: "script.sh"
     agents:
       queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
