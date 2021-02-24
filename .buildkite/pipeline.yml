@@ -1,4 +1,6 @@
 steps:
   - plugins:
     - docker-compose#3.7.0:
-        command: ["up", "checkpointing/docker-compose.yml"]
+        workdir: /checkpointing
+        config:
+          - docker-compose.yml 
