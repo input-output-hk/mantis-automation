@@ -914,3 +914,20 @@ java.io.FileNotFoundException: resource 'chains/pottery-genesis.json' was not fo
 	at io.iohk.ethereum.Mantis$.main(Mantis.scala:16)
 	at io.iohk.ethereum.App$.main(App.scala:23)
 	at io.iohk.ethereum.App.main(App.scala)
+2021-02-23 11:40:46,602 [mantis_system-akka.actor.default-dispatcher-6] INFO  akka.event.slf4j.Slf4jLogger  - Slf4jLogger started
+2021-02-23 11:40:51,910 [main] INFO  io.iohk.ethereum.Mantis$  - Using network pottery
+2021-02-23 11:40:52,074 [main] INFO  io.iohk.ethereum.nodebuilder.StdNode  - Metrics started
+2021-02-23 11:40:52,093 [main] ERROR i.i.e.b.data.GenesisDataLoader  - Cannot load custom genesis data from: chains/pottery-genesis.json
+java.io.FileNotFoundException: resource 'chains/pottery-genesis.json' was not found in the classpath from the given classloader.
+	at scala.io.Source$.fromResource(Source.scala:183)
+	at io.iohk.ethereum.blockchain.data.GenesisDataLoader$$anonfun$1.$anonfun$applyOrElse$1(GenesisDataLoader.scala:42)
+	at scala.util.Try$.apply(Try.scala:210)
+	at io.iohk.ethereum.blockchain.data.GenesisDataLoader$$anonfun$1.applyOrElse(GenesisDataLoader.scala:42)
+	at io.iohk.ethereum.blockchain.data.GenesisDataLoader$$anonfun$1.applyOrElse(GenesisDataLoader.scala:39)
+	at scala.util.Failure.recoverWith(Try.scala:240)
+	at io.iohk.ethereum.blockchain.data.GenesisDataLoader.loadGenesisData(GenesisDataLoader.scala:39)
+	at io.iohk.ethereum.nodebuilder.BaseNode.loadGenesisData(StdNode.scala:25)
+	at io.iohk.ethereum.nodebuilder.BaseNode.start(StdNode.scala:61)
+	at io.iohk.ethereum.Mantis$.main(Mantis.scala:16)
+	at io.iohk.ethereum.App$.main(App.scala:23)
+	at io.iohk.ethereum.App.main(App.scala)

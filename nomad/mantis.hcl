@@ -1,4 +1,4 @@
-job "mantis-sagano" {
+job "mantis" {
 	datacenters = ["dc1"]
 	
 	#
@@ -180,7 +180,7 @@ job "mantis-sagano" {
 	# faucet
 	#
 	group "faucet" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {
@@ -193,10 +193,10 @@ job "mantis-sagano" {
 			# bits:	1st - always 1
 			#				2nd - faucet
 			#				3tr - prometheus
-			#				4th - grafana
-			#				5th - mining
+			#				4th - mining
+			#				5th - bootstrap
 			port "nonce" {
-				to = 11000	
+				to = 11000
 			}
 		}
 
@@ -249,114 +249,11 @@ job "mantis-sagano" {
 	}
 
 	#
-	# bootstrap node with persistence enabled
-	#
-	group "bootstrap" {
-		count = 0
-
-		network {
-			port "rpc" {
-				to = 8546
-			}
-
-			port "metrics" {
-				to = 13798	
-			}
-
-			# only for the "docker ps --no-trunc" output command	
-			# to be able to distinguish between containers based on same image
-			# since nomad container naming is not working on my host
-			# bits:	1st - always 1
-			#				2nd - faucet 
-			#				3tr - prometheus
-			#				4th - grafana
-			#				5th - mining
-			port "nonce" {
-				to = 10110	
-			}
-		}
-
-		volume "distribution-bootstrap" {
-			type = "host"
-			read_only = true
-			source ="distribution-bootstrap"
-		}
-		
-		volume "provisioning-bootstrap" {
-			type = "host"
-			read_only = false
-			source ="provisioning-bootstrap"
-		}
-
-		volume "provisioning-prometheus" {
-			type = "host"
-			read_only = true
-			source ="provisioning-prometheus"
-		}
-	
-		task "bootstrap" {
-			driver = "docker"
-			
-			volume_mount {
-				volume = "distribution-bootstrap"
-				destination = "/root/mantis-dist"
-				read_only = true
-			}
-
-			volume_mount {
-				type = "host"
-				destination ="/root/.mantis"
-				read_only = "false"
-
-			volume_mount {
-				volume = "provisioning-prometheus"
-				destination = "/etc/prometheus"
-				read_only = true
-			}
-
-			config {	
-				hostname = "bootstrap"
-				network_aliases = ["bootstrap"]
-				network_mode = "nomad_mantis"
-				ports = ["rpc", "metrics", "nonce"]
-				labels {
-					mining = "enabled"
-				}
-				image = "openjdk:8-jdk-slim-buster"
-				command = "/root/mantis-dist/bin/mantis-launcher"
-				args = [
-					#"etc"
-					#"mordor"
-					"sagano"
-					#"pottery"
-				]
-				interactive = false
-			}
-
-			resources {
-				#memory = 4096
-				memory = 2048
-				cpu = 200
-			}
-
-			service {
-				name = "rpc"
-				port = "rpc"
-			}
-			
-			service {
-				name = "metrics"
-				port = "metrics"
-			}
-		}
-	}
-
-	#
 	# Custom mantis client configuration
 	# mining enabled
 	#
 	group "miner-enabled" {
-		count = 1
+		count = 2
 
 		network {
 			port "rpc" {
@@ -373,10 +270,10 @@ job "mantis-sagano" {
 			# bits:	1st - always 1
 			#				2nd - faucet 
 			#				3tr - prometheus
-			#				4th - grafana
-			#				5th - mining
+			#				4th - mining
+			#				5th - bootstrap
 			port "nonce" {
-				to = 10111	
+				to = 10110
 			}
 		}
 
@@ -394,7 +291,7 @@ job "mantis-sagano" {
 	
 		task "mantis-client-miner-enabled" {
 			driver = "docker"
-			
+		
 			volume_mount {
 				volume = "distribution-miner-enabled"
 				destination = "/root/mantis-dist"
@@ -423,7 +320,7 @@ job "mantis-sagano" {
 					"sagano"
 					#"pottery"
 				]
-				interactive = false
+				interactive = true
 			}
 
 			resources {
@@ -449,7 +346,7 @@ job "mantis-sagano" {
 	#	mining disabled
 	#
 	group "miner-disabled" {
-		count = 0
+		count = 1
 
 		network {
 			port "rpc" {
@@ -462,10 +359,10 @@ job "mantis-sagano" {
 			# bits:	1st - always 1
 			#				2nd - faucet
 			#				3tr - prometheus
-			#				4th - grafana
-			#				5th - mining
+			#		  	4th - mining
+			#       5th - bootstrap
 			port "nonce" {
-				to = 10000	
+				to = 10000
 			}
 
 		}
