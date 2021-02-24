@@ -1,7 +1,7 @@
 steps:
   - command: test.sh
     plugins:
-    - docker-compose#3.7.0:
+    - docker-compose#v3.7.0:
         workdir: /checkpointing
         run: checkpointing
         config:
