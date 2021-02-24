@@ -1,5 +1,4 @@
 steps:
-  - label: ":hammer: My Script"
-    command: "script.sh"
-    agents:
-      queue: "${BUILDKITE_AGENT_META_DATA_QUEUE:-default}"
+  - plugins:
+    - docker-compose#3.7.0:
+      config: checkpointing/docker-compose.yml 
