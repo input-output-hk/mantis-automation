@@ -316,8 +316,8 @@ job "mantis-pottery" {
 			}
 
 			config {	
-				hostname = "bootstrap"
-				network_aliases = ["bootstrap"]
+				hostname = "bootstrap-1"
+				network_aliases = ["bootstrap-1"]
 				network_mode = "nomad_mantis"
 				ports = ["rpc", "metrics", "nonce"]
 				labels {
@@ -357,7 +357,7 @@ job "mantis-pottery" {
 	# mining enabled
 	#
 	group "miner-enabled" {
-		count = 2
+		count = 3
 
 		network {
 			port "rpc" {
@@ -429,7 +429,8 @@ job "mantis-pottery" {
 
 			resources {
 				#memory = 4096
-				memory = 2048
+				#memory = 2048
+				memory = 3074
 				cpu = 200
 			}
 
@@ -450,7 +451,7 @@ job "mantis-pottery" {
 	#	mining disabled
 	#
 	group "miner-disabled" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {

@@ -253,7 +253,7 @@ job "mantis" {
 	# mining enabled
 	#
 	group "miner-enabled" {
-		count = 2
+		count = 3
 
 		network {
 			port "rpc" {
@@ -325,7 +325,7 @@ job "mantis" {
 
 			resources {
 				#memory = 4096
-				memory = 2048
+				memory = 3074
 				cpu = 200
 			}
 
@@ -346,7 +346,7 @@ job "mantis" {
 	#	mining disabled
 	#
 	group "miner-disabled" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {
