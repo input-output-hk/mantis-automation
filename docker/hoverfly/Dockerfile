@@ -1,0 +1,2 @@
+FROM chrisatiohk/base
+ADD 
