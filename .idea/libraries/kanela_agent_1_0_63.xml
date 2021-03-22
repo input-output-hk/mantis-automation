@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="kanela-agent-1.0.63">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/nomad/distributions/miner-disabled/kanela-agent/kanela-agent-1.0.6.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
