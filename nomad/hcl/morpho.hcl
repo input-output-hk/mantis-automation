@@ -40,7 +40,11 @@ job "morpho" {
 
 		task "checkpointing-1" {
 			driver = "docker"
-			
+		
+			env {
+				HTTP_PROXY = "hoverfly:8500"
+			}
+	
 			volume_mount {
 				volume = "persistance-.morpho"
 				destination ="/root/.morpho"
@@ -117,6 +121,10 @@ job "morpho" {
 		task "checkpointing-2" {
 			driver = "docker"
 			
+			env {
+				HTTP_PROXY = "hoverfly:8500"
+			}
+
 			volume_mount {
 				volume = "persistance-.morpho"
 				destination ="/root/.morpho"
@@ -193,6 +201,10 @@ job "morpho" {
 		task "checkpointing-3" {
 			driver = "docker"
 			
+			env {
+				HTTP_PROXY = "hoverfly:8500"
+			}
+
 			volume_mount {
 				volume = "persistance-.morpho"
 				destination ="/root/.morpho"
@@ -269,6 +281,10 @@ job "morpho" {
 		task "checkpointing-4" {
 			driver = "docker"
 			
+			env {
+				HTTP_PROXY = "hoverfly:8500"
+			}
+
 			volume_mount {
 				volume = "persistance-.morpho"
 				destination ="/root/.morpho"
@@ -345,6 +361,10 @@ job "morpho" {
 		task "checkpointing-5" {
 			driver = "docker"
 			
+			env {
+				HTTP_PROXY = "hoverfly:8500"
+			}
+
 			volume_mount {
 				volume = "persistance-.morpho"
 				destination ="/root/.morpho"
