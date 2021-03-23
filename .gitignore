@@ -1,2 +1,7 @@
-/.idea/
-/.idea/*
+.idea/**
+.idea/
+**/distributions/bootstrap-common/**
+**/distributions/miner-enabled/**
+**/rocksdb/**
+**/logs/**
+**/db/db/**
