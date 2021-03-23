@@ -1,8 +1,0 @@
-steps:
-  - command: test.sh
-    plugins:
-    - docker-compose#v3.7.0:
-        workdir: /checkpointing
-        run: checkpointing
-        config:
-          - docker-compose.yml 
