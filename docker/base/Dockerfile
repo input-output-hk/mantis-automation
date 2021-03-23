@@ -1,0 +1,4 @@
+FROM ubuntu:groovy
+
+RUN apt update
+RUN apt install -y net-tools fish iputils-ping tcpdump nix-bin telnet git curl wget vim

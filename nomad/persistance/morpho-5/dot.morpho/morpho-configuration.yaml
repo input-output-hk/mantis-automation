@@ -1,0 +1,166 @@
+##########################################################
+################### Node Configuration ###################
+##########################################################
+
+minSeverity: Debug
+NodeId: 5
+Protocol: MockedBFT
+NumCoreNodes: 1
+RequiresNetworkMagic: RequiresMagic
+NetworkMagic : 12345
+SecurityParam : 3
+TurnOnLogging: True
+ViewMode: SimpleView
+TurnOnLogMetrics: True
+SlotDuration: 5
+StableLedgerDepth : 2
+SnapshotsOnDisk: 60
+SnapshotInterval: 60
+PoWBlockFetchInterval: 5000000
+PoWNodeRpcUrl: http://bootstrap-5:8546
+PrometheusPort: 13788
+
+# Checkpointing parameters
+CheckpointInterval: 4
+RequiredMajority: 1
+FedPubKeys:
+  - 5abbac150283c417b2a05b650c5332c58e1f5579aed734dc33fca47d60cb54007e00e3b18ef251aacc2eff39477f70f1c43f02c64f120a447aea030b60cba702
+  - b181e1bf301f7496d83f4bd4a2d22d9d25af8c05b7bf761a46784b4a5862a51467ebfeb64d57a5da2e22c9bc86e9270ce44d55ce6efbd698c05331c6626b5644
+  - be9b910c37eb0ee6bb4d69de5529f55d3bf10db657316ce523ce101f03f1277b3471c3ac4d7c24ece5b1abde95f9c3d4049aa603dc2475718bd796f2605d7206
+  - 03be9c357d0fa4e3c2d9f59de6d02f355c6340353d693a8c6cae2472115825f509f534f316b299d3b9d23b1efc4048dbde24c7e1c3a833acc18730378a0cc7dc
+  - 464091d0242661ab306d44bae48aacaeffa50d19707ed87139ab51b28d33d89d135609a67eeb3b7e16451e19f9992f77bdf99f671ecd837724eea4363ae39197
+
+NodePrivKeyFile: /root/.morpho/private.key
+
+
+#####    Update Parameters    #####
+
+ApplicationName: morpho-checkpoint
+ApplicationVersion: 1
+LastKnownBlockVersion-Major: 0
+LastKnownBlockVersion-Minor: 2
+LastKnownBlockVersion-Alt: 0
+
+#####         Tracing         #####
+
+# MinimalVerbosity: Minimal level of the rendering of captured items
+# MaximalVerbosity: Maximal level of the rendering of captured items
+# NormalVerbosity: the default level of the rendering of captured items
+TracingVerbosity: NormalVerbosity
+
+# Trace BlockFetch client.
+TraceBlockFetchClient: True
+
+# Trace BlockFetch decisions made by the BlockFetch client.
+TraceBlockFetchDecisions: True
+
+# Trace BlockFetch protocol messages.
+TraceBlockFetchProtocol: True
+
+# Serialised Trace BlockFetch protocol messages.
+TraceBlockFetchProtocolSerialised: False
+
+# Trace BlockFetch server.
+TraceBlockFetchServer: True
+
+# Verbose tracer of ChainDB
+TraceChainDb: True
+
+# Trace ChainSync client.
+TraceChainSyncClient: True
+
+# Trace ChainSync server (blocks).
+TraceChainSyncBlockServer: True
+
+# Trace ChainSync server (headers)
+TraceChainSyncHeaderServer: True
+
+# Trace ChainSync protocol messages.
+TraceChainSyncProtocol: True
+
+# Trace DNS Resolver messages.
+TraceDNSResolver: True
+
+# Trace DNS Subscription messages.
+TraceDNSSubscription: True
+
+# Trace error policy resolution.
+TraceErrorPolicy: False
+
+# Trace block forging.
+TraceForge: True
+
+# Trace IP Subscription messages.
+TraceIpSubscription: True
+
+# Trace local ChainSync protocol messages.
+TraceLocalChainSyncProtocol: True
+
+# Trace local TxSubmission protocol messages.
+TraceLocalTxSubmissionProtocol: True
+
+# Trace local TxSubmission server.
+TraceLocalTxSubmissionServer: True
+
+# Trace mempool.
+TraceMempool: True
+
+# Trace Mux Events
+TraceMux: False
+
+# Trace TxSubmission server (inbound transactions).
+TraceTxInbound: True
+
+# Trace TxSubmission client (outbound transactions).
+TraceTxOutbound: True
+
+# Trace TxSubmission protocol messages.
+TraceTxSubmissionProtocol: True
+
+##### LoggingFeature Configuration #####
+
+# EKG is a simple metrics monitoring system. Uncomment the following to listen
+# on the given local port and point your web browser to http://localhost:12788/
+# for a live view. The same URL can also serve JSON output.
+# hasEKG: 12788
+
+# The Prometheus monitoring system can also be used. Uncomment the following
+# to listen on the given port
+# hasPrometheus: 12789
+
+# For the Katip logging backend we must set up outputs (called scribes)
+# The available types of scribe are:
+#   FileSK for files
+#   StdoutSK/StdoutSK for stdout/stderr
+#   JournalSK for systemd's journal system
+#   DevNullSK
+# The scribe output format can be ScText or ScJson. Log rotation settings can
+# be specified in the defaults below or overidden on a per-scribe basis here.
+setupScribes:
+  - scKind: FileSK
+    scName: "logs/staging.log"
+    scFormat: ScText
+
+  - scKind: StdoutSK
+    scName: stdout
+    scFormat: ScText
+    scRotation: null
+
+# For the Katip logging backend this specifies the default scribes that trace
+# output is sent to if it is not configured to be sent to other scribes.
+defaultScribes:
+  - - FileSK
+    - "logs/staging.log"
+
+  - - StdoutSK
+    - stdout
+
+setupBackends:
+  - KatipBK
+
+defaultBackends:
+  - KatipBK
+
+##### Fine grained logging control #####
+options:
+  mapBackends:
