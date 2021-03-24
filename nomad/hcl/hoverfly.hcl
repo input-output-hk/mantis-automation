@@ -30,10 +30,15 @@ job "hoverfly" {
 					hoverfly = "enabled"
 				}
 				image = "chrisatiohk/hoverfly"
+				#command = "/bin/sleep"
+				#args = ["100000000"]
 				command = "/root/hoverfly/hoverfly"
 				args = [
 					"-capture",
-					"-listen-on-host=0.0.0.0"
+					"-listen-on-host=0.0.0.0",
+					"-log-level=debug",
+					"-v",
+					"-metrics"
 				]
 				interactive = true
 			}

@@ -6,7 +6,7 @@ job "miner" {
 	# mining enabled
 	#
 	group "miner-enabled" {
-		count = 2
+		count = 1
 
 		network {
 			port "rpc" {

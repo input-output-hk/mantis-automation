@@ -3,7 +3,7 @@
 ##########################################################
 
 minSeverity: Debug
-NodeId: 1
+NodeId: 0
 Protocol: MockedBFT
 NumCoreNodes: 1
 RequiresNetworkMagic: RequiresMagic
@@ -22,7 +22,7 @@ PrometheusPort: 13788
 
 # Checkpointing parameters
 CheckpointInterval: 4
-RequiredMajority: 1
+RequiredMajority: 3
 FedPubKeys:
   - 5abbac150283c417b2a05b650c5332c58e1f5579aed734dc33fca47d60cb54007e00e3b18ef251aacc2eff39477f70f1c43f02c64f120a447aea030b60cba702
   - b181e1bf301f7496d83f4bd4a2d22d9d25af8c05b7bf761a46784b4a5862a51467ebfeb64d57a5da2e22c9bc86e9270ce44d55ce6efbd698c05331c6626b5644
