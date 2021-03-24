@@ -11,7 +11,7 @@
 
 		Your local hostname for "x230" (my local hostname):
 	
-			in file "./mantis.hcl":
+			in file "./hcl/infra.hcl":
 
 				CONSUL_HOST="<local hostname>"
 
@@ -23,15 +23,11 @@
 	In the "mantis.hcl" file four distribution dependent node configurations have been defined:
 
 	- "bootstrap"
-	- "faucet"
-	- "miner-disabled"
 	- "miner-enabled"
 
 	For these node configurations mantis distributions directories are provided under:
 	
 	./distributions/bootstrap/
-	./distributions/faucet/
-	./distributions/miner-disabled/
 	./distributions/miner-enabled/
 
 	In theese directories the content of the mantis client distribution directory has been placed and the configuration has been changed accordingly to the configurations name. 
@@ -66,9 +62,9 @@
 	/.../
 
 4. Node count
-	One can define how many instances of a custom node configuration are run by setting the appropriate "count" parameter in the "./mantis.hcl" file for a desired custom node configuration.
+	One can define how many instances of a custom node configuration are run by setting the appropriate "count" parameter in the "./nomad/hcl/*.hcl" file for a desired custom node configuration.
 
-5. Launching
+5. Launching (./nomad directory)
 	- First, we create a dedicated docker network
 	
 			>	sudo docker network create --driver bridge nomad_mantis
@@ -79,7 +75,11 @@
  
   - Then, we start the configured nomad job file
 
-			> sudo nomad job plan mantis.hcl
+			> sudo nomad job plan hcl/morpho.hcl		- if we want checkpointing
+			> sudo nomad job plan hcl/hoverfly.hcl  - if we want hoverfly proxy
+			> sudo nomad job plan hcl/infra.hcl			- for consul, graphana, promethesu
+			> sudo nomad job plan hcl/bootstrap.hcl - if we want bootstrap nodes
+			> sudo nomad job plan hcl/miner.hcl			- if we want miners
 
 		and follow the on screen instructions.
 
@@ -109,7 +109,7 @@
 		> mkdir ./distributions/<new-configuration>
 
 		- add "host_volume <new-configration>" entry to ./nomad.conf file analogous to other
-		- add "group <new-configuration>" entry to ./mantis.hcl file analogous to other	
+		- add "group <new-configuration>" entry to ./hcl/<configuration>.hcl file analogous to other	
 
 	For that node to be included in grafana, metrics need to be enabled in the network configuration file and the "metrics" service needs to be enabled for service discovery (consul) in the "./mantis.conf" file, analogous as for the "miner-enabled" node configuration.
 
