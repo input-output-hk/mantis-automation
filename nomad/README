@@ -75,8 +75,8 @@
  
   - Then, we start the configured nomad job file
 
-			> sudo nomad job plan hcl/morpho.hcl		- if we want checkpointing
-			> sudo nomad job plan hcl/hoverfly.hcl  - if we want hoverfly proxy
+			> sudo nomad job plan hcl/morpho.hcl		- if we want checkpointing, MUST be run as first
+			> sudo nomad job plan hcl/hoverfly.hcl  - if we want hoverfly proxy, if NOT -> comment out "HTTP_PROXY = "hoverfly:8500"" in hcl/morpho.hcl
 			> sudo nomad job plan hcl/infra.hcl			- for consul, graphana, promethesu
 			> sudo nomad job plan hcl/bootstrap.hcl - if we want bootstrap nodes
 			> sudo nomad job plan hcl/miner.hcl			- if we want miners
