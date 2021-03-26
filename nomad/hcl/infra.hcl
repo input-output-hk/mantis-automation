@@ -146,7 +146,7 @@ job "infra" {
 		
 			env {
 				CONSUL_HOST = "x230"
-				CONSUL_SERVICE = "rpc"
+				CONSUL_SERVICE = "bootstrap-rpc"
 			}	
 
 			config {	

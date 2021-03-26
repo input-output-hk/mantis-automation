@@ -95,7 +95,7 @@ job "bootstrap" {
 			}
 
 			service {
-				name = "rpc"
+				name = "bootstrap-rpc"
 				port = "rpc"
 			}
 			
@@ -197,7 +197,7 @@ job "bootstrap" {
 			}
 
 			service {
-				name = "rpc"
+				name = "bootstrap-rpc"
 				port = "rpc"
 			}
 			
@@ -299,7 +299,7 @@ job "bootstrap" {
 			}
 
 			service {
-				name = "rpc"
+				name = "bootstrap-rpc"
 				port = "rpc"
 			}
 			
@@ -401,7 +401,7 @@ job "bootstrap" {
 			}
 
 			service {
-				name = "rpc"
+				name = "bootstrap-rpc"
 				port = "rpc"
 			}
 			
@@ -503,7 +503,7 @@ job "bootstrap" {
 			}
 
 			service {
-				name = "rpc"
+				name = "bootstrap-rpc"
 				port = "rpc"
 			}
 			
