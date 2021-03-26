@@ -1,12 +1,12 @@
-job "miner" {
+job "passive" {
 	datacenters = ["dc1"]
 
   #
 	# Custom morpho client configuration
 	# mining enabled
 	#
-	group "miner-enabled" {
-		count = 1
+	group "passive" {
+		count = 3
 
 		network {
 			port "rpc" {
@@ -26,14 +26,14 @@ job "miner" {
 			#				4th - mining
 			#				5th - bootstrap
 			port "nonce" {
-				to = 10110
+				to = 10100
 			}
 		}
 
-		volume "distribution-miner-enabled" {
+		volume "distribution-passive" {
 			type = "host"
 			read_only = true
-			source ="distribution-miner-enabled"
+			source ="distribution-passive"
 		}
 
 		volume "provisioning-prometheus" {
@@ -48,11 +48,11 @@ job "miner" {
 		#	source ="provisioning-ethash-1"
 		#}
 
-		task "mantis-client-miner-enabled" {
+		task "mantis-client-passive" {
 			driver = "docker"
 		
 			volume_mount {
-				volume = "distribution-miner-enabled"
+				volume = "distribution-passive"
 				destination = "/root/mantis-dist"
 				read_only = true
 			}
@@ -70,7 +70,7 @@ job "miner" {
 		#	}
 	
 			config {	
-				hostname = "miner-enabled"
+				hostname = "passive"
 				network_aliases = ["${NOMAD_TASK_NAME}-${NOMAD_ALLOC_INDEX}"]
 				network_mode = "nomad_mantis"
 				ports = ["rpc", "metrics", "nonce"]
@@ -89,8 +89,9 @@ job "miner" {
 			}
 
 			resources {
-				memory = 4096
+				#memory = 3072
 				#memory = 2048
+				memory = 512
 				cpu = 200
 			}
 
