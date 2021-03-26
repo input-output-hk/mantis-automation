@@ -59,13 +59,13 @@ job "morpho" {
 
 			config {	
 				hostname = "checkpointing-1"
-				network_aliases = ["checkpointing-1"]
+				network_aliases = ["morpho-1"]
 				network_mode = "nomad_mantis"
 				ports = ["nonce"]
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho-master"
+				image = "chrisatiohk/morpho"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -139,13 +139,13 @@ job "morpho" {
 
 			config {	
 				hostname = "checkpointing-2"
-				network_aliases = ["checkpointing-2"]
+				network_aliases = ["morpho-2"]
 				network_mode = "nomad_mantis"
 				ports = ["nonce"]
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho-master"
+				image = "chrisatiohk/morpho"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -219,13 +219,13 @@ job "morpho" {
 
 			config {	
 				hostname = "checkpointing-3"
-				network_aliases = ["checkpointing-3"]
+				network_aliases = ["morpho-3"]
 				network_mode = "nomad_mantis"
 				ports = ["nonce"]
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho-master"
+				image = "chrisatiohk/morpho"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -299,13 +299,13 @@ job "morpho" {
 
 			config {	
 				hostname = "checkpointing-4"
-				network_aliases = ["checkpointing-4"]
+				network_aliases = ["morpho-4"]
 				network_mode = "nomad_mantis"
 				ports = ["nonce"]
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho-master"
+				image = "chrisatiohk/morpho"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -379,13 +379,13 @@ job "morpho" {
 
 			config {	
 				hostname = "checkpointing-5"
-				network_aliases = ["checkpointing-5"]
+				network_aliases = ["morpho-5"]
 				network_mode = "nomad_mantis"
 				ports = ["nonce"]
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho-master"
+				image = "chrisatiohk/morpho"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}

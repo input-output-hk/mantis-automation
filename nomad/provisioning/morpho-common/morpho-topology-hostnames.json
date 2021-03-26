@@ -1,0 +1,153 @@
+[
+  {
+    "nodeId": 0,
+    "producers": [
+      {
+        "addr": "morpho-1",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-2",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-3",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-4",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-5",
+        "port": 3000,
+        "valency": 1
+      }
+    ]
+  },
+	{
+    "nodeId": 1,
+    "producers": [
+      {
+        "addr": "morpho-1",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-2",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-3",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-4",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-5",
+        "port": 3000,
+        "valency": 1
+      }
+    ]
+  },
+	{
+    "nodeId": 2,
+    "producers": [
+      {
+        "addr": "morpho-1",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-2",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-3",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-4",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-5",
+        "port": 3000,
+        "valency": 1
+      }
+    ]
+  },
+	{
+    "nodeId": 3,
+    "producers": [
+      {
+        "addr": "morpho-1",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-2",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-3",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-4",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-5",
+        "port": 3000,
+        "valency": 1
+      }
+    ]
+  },
+	{
+    "nodeId": 4,
+    "producers": [
+      {
+        "addr": "morpho-1",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-2",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-3",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-4",
+        "port": 3000,
+        "valency": 1
+      },
+      {
+        "addr": "morpho-5",
+        "port": 3000,
+        "valency": 1
+      }
+    ]
+  }
+
+]
