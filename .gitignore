@@ -5,3 +5,4 @@
 **/rocksdb/**
 **/logs/**
 **/db/db/**
+**/distributions/*

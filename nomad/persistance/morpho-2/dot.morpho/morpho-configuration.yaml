@@ -2,26 +2,23 @@
 ################### Node Configuration ###################
 ##########################################################
 
-minSeverity: Debug
+
 NodeId: 1
 Protocol: MockedBFT
-NumCoreNodes: 1
-RequiresNetworkMagic: RequiresMagic
+NumCoreNodes: 5
 NetworkMagic : 12345
 SecurityParam : 3
 TurnOnLogging: True
-ViewMode: SimpleView
-TurnOnLogMetrics: True
 SlotDuration: 5
-StableLedgerDepth : 2
 SnapshotsOnDisk: 60
 SnapshotInterval: 60
 PoWBlockFetchInterval: 5000000
 PoWNodeRpcUrl: http://bootstrap-2:8546
 PrometheusPort: 13788
+SystemStart: "2021-03-26T12:00:00Z"
 
 # Checkpointing parameters
-CheckpointInterval: 4
+CheckpointInterval: 10
 RequiredMajority: 3
 FedPubKeys:
   - 5abbac150283c417b2a05b650c5332c58e1f5579aed734dc33fca47d60cb54007e00e3b18ef251aacc2eff39477f70f1c43f02c64f120a447aea030b60cba702
@@ -31,15 +28,12 @@ FedPubKeys:
   - 464091d0242661ab306d44bae48aacaeffa50d19707ed87139ab51b28d33d89d135609a67eeb3b7e16451e19f9992f77bdf99f671ecd837724eea4363ae39197
 
 NodePrivKeyFile: /root/.morpho/private.key
+StableLedgerDepth: 6
+DatabaseDirectory: /root/.morpho/db/db
+NodePort: 1234
 
+TopologyFile: /root/morpho-common/morpho-topology.json
 
-#####    Update Parameters    #####
-
-ApplicationName: morpho-checkpoint
-ApplicationVersion: 1
-LastKnownBlockVersion-Major: 0
-LastKnownBlockVersion-Minor: 2
-LastKnownBlockVersion-Alt: 0
 
 #####         Tracing         #####
 
@@ -79,10 +73,10 @@ TraceChainSyncHeaderServer: True
 TraceChainSyncProtocol: True
 
 # Trace DNS Resolver messages.
-TraceDNSResolver: True
+TraceDNSResolver: False
 
 # Trace DNS Subscription messages.
-TraceDNSSubscription: True
+TraceDNSSubscription: False
 
 # Trace error policy resolution.
 TraceErrorPolicy: False
@@ -119,48 +113,52 @@ TraceTxSubmissionProtocol: True
 
 ##### LoggingFeature Configuration #####
 
-# EKG is a simple metrics monitoring system. Uncomment the following to listen
-# on the given local port and point your web browser to http://localhost:12788/
-# for a live view. The same URL can also serve JSON output.
-# hasEKG: 12788
+Logging:
 
-# The Prometheus monitoring system can also be used. Uncomment the following
-# to listen on the given port
-# hasPrometheus: 12789
+  minSeverity: Debug
 
-# For the Katip logging backend we must set up outputs (called scribes)
-# The available types of scribe are:
-#   FileSK for files
-#   StdoutSK/StdoutSK for stdout/stderr
-#   JournalSK for systemd's journal system
-#   DevNullSK
-# The scribe output format can be ScText or ScJson. Log rotation settings can
-# be specified in the defaults below or overidden on a per-scribe basis here.
-setupScribes:
-  - scKind: FileSK
-    scName: "logs/staging.log"
-    scFormat: ScText
+  # EKG is a simple metrics monitoring system. Uncomment the following to listen
+  # on the given local port and point your web browser to http://localhost:12788/
+  # for a live view. The same URL can also serve JSON output.
+  # hasEKG: 12788
 
-  - scKind: StdoutSK
-    scName: stdout
-    scFormat: ScText
-    scRotation: null
+  # The Prometheus monitoring system can also be used. Uncomment the following
+  # to listen on the given port
+  # hasPrometheus: 12789
 
-# For the Katip logging backend this specifies the default scribes that trace
-# output is sent to if it is not configured to be sent to other scribes.
-defaultScribes:
-  - - FileSK
-    - "logs/staging.log"
+  # For the Katip logging backend we must set up outputs (called scribes)
+  # The available types of scribe are:
+  #   FileSK for files
+  #   StdoutSK/StdoutSK for stdout/stderr
+  #   JournalSK for systemd's journal system
+  #   DevNullSK
+  # The scribe output format can be ScText or ScJson. Log rotation settings can
+  # be specified in the defaults below or overidden on a per-scribe basis here.
+  setupScribes:
+    - scKind: FileSK
+      scName: "logs/staging.log"
+      scFormat: ScText
 
-  - - StdoutSK
-    - stdout
+    - scKind: StdoutSK
+      scName: stdout
+      scFormat: ScText
+      scRotation: null
 
-setupBackends:
-  - KatipBK
+  # For the Katip logging backend this specifies the default scribes that trace
+  # output is sent to if it is not configured to be sent to other scribes.
+  defaultScribes:
+    - - FileSK
+      - "logs/staging.log"
 
-defaultBackends:
-  - KatipBK
+    - - StdoutSK
+      - stdout
 
-##### Fine grained logging control #####
-options:
-  mapBackends:
+  setupBackends:
+    - KatipBK
+
+  defaultBackends:
+    - KatipBK
+
+  ##### Fine grained logging control #####
+  options:
+    mapBackends:
