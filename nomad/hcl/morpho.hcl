@@ -42,7 +42,7 @@ job "morpho" {
 			driver = "docker"
 		
 			env {
-				HTTP_PROXY = "hoverfly:8500"
+				#HTTP_PROXY = "hoverfly:8500"
 			}
 	
 			volume_mount {
@@ -122,7 +122,7 @@ job "morpho" {
 			driver = "docker"
 			
 			env {
-				HTTP_PROXY = "hoverfly:8500"
+				#HTTP_PROXY = "hoverfly:8500"
 			}
 
 			volume_mount {
@@ -202,7 +202,7 @@ job "morpho" {
 			driver = "docker"
 			
 			env {
-				HTTP_PROXY = "hoverfly:8500"
+				#HTTP_PROXY = "hoverfly:8500"
 			}
 
 			volume_mount {
@@ -282,7 +282,7 @@ job "morpho" {
 			driver = "docker"
 			
 			env {
-				HTTP_PROXY = "hoverfly:8500"
+				#HTTP_PROXY = "hoverfly:8500"
 			}
 
 			volume_mount {
@@ -362,7 +362,7 @@ job "morpho" {
 			driver = "docker"
 			
 			env {
-				HTTP_PROXY = "hoverfly:8500"
+				#HTTP_PROXY = "hoverfly:8500"
 			}
 
 			volume_mount {

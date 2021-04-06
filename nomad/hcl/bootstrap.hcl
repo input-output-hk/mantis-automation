@@ -209,7 +209,7 @@ job "bootstrap" {
 	}
 
 	group "bootstrap-3" {
-		count = 3
+		count = 1
 
 		network {
 			port "rpc" {

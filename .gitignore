@@ -1,8 +1,10 @@
 .idea/**
 .idea/
-**/distributions/bootstrap-common/**
-**/distributions/miner-enabled/**
 **/rocksdb/**
 **/logs/**
 **/db/db/**
-**/distributions/*
+nomad/distributions/mantis*
+nomad/distributions/miner-enabled/*
+nomad/distributions/bootstrap-common/*
+nomad/distributions/passive/*
+*.log
