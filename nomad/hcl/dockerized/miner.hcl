@@ -1,12 +1,12 @@
-job "passive" {
+job "d-miner" {
 	datacenters = ["dc1"]
 
   #
 	# Custom morpho client configuration
 	# mining enabled
 	#
-	group "passive" {
-		count = 3
+	group "miner-enabled" {
+		count = 1
 
 		network {
 			port "rpc" {
@@ -26,72 +26,35 @@ job "passive" {
 			#				4th - mining
 			#				5th - bootstrap
 			port "nonce" {
-				to = 10100
+				to = 10110
 			}
 		}
 
-		volume "distribution-passive" {
-			type = "host"
-			read_only = true
-			source ="distribution-passive"
-		}
-
-		volume "provisioning-prometheus" {
-			type = "host"
-			read_only = true
-			source ="provisioning-prometheus"
-		}
-	
-		#volume "provisioning-ethash" {
-		#	type = "host"
-			#read_only = true
-		#	source ="provisioning-ethash-1"
-		#}
-
-		task "mantis-client-passive" {
+		task "mantis-client-miner-enabled" {
 			driver = "docker"
 		
-			volume_mount {
-				volume = "distribution-passive"
-				destination = "/root/mantis-dist"
-				read_only = true
-			}
-
-			volume_mount {
-				volume = "provisioning-prometheus"
-				destination = "/etc/prometheus"
-				read_only = true
-			}
-
-		#	volume_mount {
-		#		volume = "provisioning-ethash"
-		#		destination = "/root/.ethash"
-				#read_only = true
-		#	}
-	
 			config {	
-				hostname = "passive"
+				hostname = "miner-enabled"
 				network_aliases = ["${NOMAD_TASK_NAME}-${NOMAD_ALLOC_INDEX}"]
 				network_mode = "nomad_mantis"
 				ports = ["rpc", "metrics", "nonce"]
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "miner:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
-					#"etc"
+					"etc"
 					#"mordor"
 					#"sagano"
-					"pottery"
+					#"pottery"
 				]
 				interactive = true
 			}
 
 			resources {
-				#memory = 3072
+				memory = 4096
 				#memory = 2048
-				memory = 1024
 				cpu = 200
 			}
 

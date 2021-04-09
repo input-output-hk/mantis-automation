@@ -1,4 +1,4 @@
-FROM chrisatiohk/java11
+FROM java11:local
 
 RUN nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 RUN nix-channel --update
@@ -18,3 +18,5 @@ WORKDIR ${USER_HOME}
 RUN git clone ${MORPHO_GIT_URL}
 WORKDIR ${USER_HOME}/${MORPHO}
 RUN nix-build
+
+ADD provisioning/morpho-common /root/morpho-common
