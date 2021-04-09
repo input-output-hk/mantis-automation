@@ -1,4 +1,4 @@
-FROM chrisatiohk/base
+FROM base:local
 WORKDIR /root
 RUN mkdir hoverfly
 ADD hoverfly_bundle_linux_amd64.zip /root/hoverfly

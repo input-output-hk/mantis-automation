@@ -1,4 +1,4 @@
-FROM chrisatiohk/java11
+FROM java11:local
 
 ARG USER_HOME="/root"
 ARG SCRIPTS="scripts"

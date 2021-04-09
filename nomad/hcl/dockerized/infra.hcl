@@ -145,7 +145,7 @@ job "d-infra" {
 			driver = "docker"
 		
 			env {
-				CONSUL_HOST = "x230"
+				CONSUL_HOST = "e2e"
 				CONSUL_SERVICE = "bootstrap-rpc"
 			}	
 

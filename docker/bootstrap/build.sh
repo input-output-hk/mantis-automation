@@ -1,4 +1,6 @@
 #!/bin/bash
+cd "$(dirname "$0")"
+
 for ((i=1;i<=5;i++)); 
 do 
   echo "Processing bootstrap-${i}"

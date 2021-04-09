@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(dirname "$0")"
 cd base
 echo "Creating provisioning mount directory"
 ls provisioning || mkdir provisioning
