@@ -1,4 +1,4 @@
-job "passive" {
+job "d-passive" {
 	datacenters = ["dc1"]
 
   #
@@ -30,45 +30,9 @@ job "passive" {
 			}
 		}
 
-		volume "distribution-passive" {
-			type = "host"
-			read_only = true
-			source ="distribution-passive"
-		}
-
-		volume "provisioning-prometheus" {
-			type = "host"
-			read_only = true
-			source ="provisioning-prometheus"
-		}
-	
-		#volume "provisioning-ethash" {
-		#	type = "host"
-			#read_only = true
-		#	source ="provisioning-ethash-1"
-		#}
-
 		task "mantis-client-passive" {
 			driver = "docker"
 		
-			volume_mount {
-				volume = "distribution-passive"
-				destination = "/root/mantis-dist"
-				read_only = true
-			}
-
-			volume_mount {
-				volume = "provisioning-prometheus"
-				destination = "/etc/prometheus"
-				read_only = true
-			}
-
-		#	volume_mount {
-		#		volume = "provisioning-ethash"
-		#		destination = "/root/.ethash"
-				#read_only = true
-		#	}
-	
 			config {	
 				hostname = "passive"
 				network_aliases = ["${NOMAD_TASK_NAME}-${NOMAD_ALLOC_INDEX}"]
@@ -77,13 +41,13 @@ job "passive" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "passive:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
-					#"etc"
+					"etc"
 					#"mordor"
 					#"sagano"
-					"pottery"
+					#"pottery"
 				]
 				interactive = true
 			}
