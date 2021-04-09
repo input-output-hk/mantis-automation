@@ -3,8 +3,11 @@
 **/rocksdb/**
 **/logs/**
 **/db/db/**
-nomad/distributions/mantis*
+nomad/distributions/mantis**
 nomad/distributions/miner-enabled/*
+!nomad/distributions/miner-enabled/.gitkeep
 nomad/distributions/bootstrap-common/*
+!nomad/distributions/bootstrap-common/.gitkeep
 nomad/distributions/passive/*
+!nomad/distributions/passive/.gitkeep
 *.log
