@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+sudo docker container prune -f
+sudo docker image prune -af
+
 base/build.sh
 
 openjdk11/build.sh
