@@ -1,4 +1,4 @@
-FROM chrisatiohk/java11
+FROM java11:local
 
 ARG USER_HOME="/root"
 ARG MANTIS="mantis"
@@ -8,6 +8,7 @@ ARG MANTIS_DIST="mantis-dist"
 WORKDIR ${USER_HOME}
 RUN git clone ${MANTIS_GIT_URL}
 WORKDIR ${USER_HOME}/${MANTIS}
+RUN git checkout origin/develop
 RUN git submodule update --recursive --init
 RUN sbt dist
 

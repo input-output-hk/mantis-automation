@@ -59,6 +59,9 @@ job "d-infra" {
 				}
 				image = "prom/prometheus"
 				interactive = false
+				extra_hosts = [
+					"e2e:172.17.0.1"
+				]
 			}
 
 			resources {
@@ -118,6 +121,9 @@ job "d-infra" {
 				}
 				image = "grafana/grafana"
 				interactive = false
+				extra_hosts = [
+					"e2e:172.17.0.1"
+				]
 			}
 
 			resources {
@@ -145,7 +151,7 @@ job "d-infra" {
 			driver = "docker"
 		
 			env {
-				CONSUL_HOST = "x230"
+				CONSUL_HOST = "e2e"
 				CONSUL_SERVICE = "bootstrap-rpc"
 			}	
 
@@ -160,6 +166,9 @@ job "d-infra" {
 				image = "explorer:local"
 				entrypoint = ["/root/startup.sh"]
 				interactive = false
+				extra_hosts = [
+					"e2e:172.17.0.1"
+				]
 			}
 
 
@@ -238,6 +247,9 @@ job "d-infra" {
 				image = "java11:local"
 				command = "/root/mantis-dist/bin/faucet-server"
 				interactive = false
+				extra_hosts = [
+					"e2e:172.17.0.1"
+				]
 			}
 
 

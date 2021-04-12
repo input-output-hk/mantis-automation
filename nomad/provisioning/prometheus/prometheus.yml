@@ -17,6 +17,6 @@ scrape_configs:
   metrics_path: /metrics
 
   consul_sd_configs:
-  - server: "x230:8500"
+  - server: "e2e:8500"
     datacenter: "dc1"
     services: ["metrics"]
