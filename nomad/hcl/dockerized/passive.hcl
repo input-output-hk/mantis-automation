@@ -44,10 +44,10 @@ job "d-passive" {
 				image = "passive:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
-					"etc"
+					#"etc"
 					#"mordor"
 					#"sagano"
-					#"pottery"
+					"pottery"
 				]
 				interactive = true
 			}
