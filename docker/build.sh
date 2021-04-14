@@ -7,7 +7,7 @@ base/build.sh
 
 openjdk11/build.sh
 
-morpho/build.sh &
+#morpho/build.sh &
 
 explorer/build.sh
 
