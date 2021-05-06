@@ -77,13 +77,13 @@ job "passive" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
 					#"etc"
 					#"mordor"
-					#"sagano"
-					"pottery"
+					"sagano"
+					#"pottery"
 				]
 				interactive = true
 			}

@@ -157,7 +157,7 @@ job "infra" {
 				labels {
 					mining = "explorer"
 				}
-				image = "chrisatiohk/explorer"
+				image = "explorer:local"
 				entrypoint = ["/root/startup.sh"]
 				interactive = false
 			}
@@ -235,7 +235,7 @@ job "infra" {
 				labels {
 					faucet = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/faucet-server"
 				interactive = false
 			}

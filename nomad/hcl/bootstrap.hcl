@@ -76,7 +76,7 @@ job "bootstrap" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
 					#"etc"
@@ -89,7 +89,7 @@ job "bootstrap" {
 
 			resources {
 				#memory = 4096
-				memory = 768
+				memory = 1024
 				#memory = 3072
 				cpu = 200
 			}
@@ -178,7 +178,7 @@ job "bootstrap" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
 					#"etc"
@@ -191,7 +191,7 @@ job "bootstrap" {
 
 			resources {
 				#memory = 4096
-				memory = 768
+				memory = 1024
 				#memory = 3072
 				cpu = 200
 			}
@@ -280,7 +280,7 @@ job "bootstrap" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
 					#"etc"
@@ -293,7 +293,7 @@ job "bootstrap" {
 
 			resources {
 				#memory = 4096
-				memory = 768 
+				memory = 1024 
 				#memory = 3072
 				cpu = 200
 			}
@@ -382,7 +382,7 @@ job "bootstrap" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
 					#"etc"
@@ -395,7 +395,7 @@ job "bootstrap" {
 
 			resources {
 				#memory = 4096
-				memory = 768
+				memory = 1024
 				#memory = 3072
 				cpu = 200
 			}
@@ -484,7 +484,7 @@ job "bootstrap" {
 				labels {
 					mining = "enabled"
 				}
-				image = "chrisatiohk/java11"
+				image = "java11:local"
 				command = "/root/mantis-dist/bin/mantis-launcher"
 				args = [
 					#"etc"
@@ -497,7 +497,7 @@ job "bootstrap" {
 
 			resources {
 				#memory = 4096
-				memory = 768
+				memory = 1024
 				#memory = 3072
 				cpu = 200
 			}

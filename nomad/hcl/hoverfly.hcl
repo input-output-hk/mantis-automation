@@ -29,7 +29,7 @@ job "hoverfly" {
 				labels {
 					hoverfly = "enabled"
 				}
-				image = "chrisatiohk/hoverfly"
+				image = "hoverfly:local"
 				#command = "/bin/sleep"
 				#args = ["100000000"]
 				command = "/root/hoverfly/hoverfly"

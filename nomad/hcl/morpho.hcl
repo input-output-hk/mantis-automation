@@ -65,7 +65,7 @@ job "morpho" {
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho"
+				image = "morpho-1:local"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -145,7 +145,7 @@ job "morpho" {
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho"
+				image = "morpho-2:local"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -225,7 +225,7 @@ job "morpho" {
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho"
+				image = "morpho-3:local"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -305,7 +305,7 @@ job "morpho" {
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho"
+				image = "morpho-4:local"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
@@ -385,7 +385,7 @@ job "morpho" {
 				labels {
 					checkpointing = "enabled"
 				}
-				image = "chrisatiohk/morpho"
+				image = "morpho-5:local"
 				command = "/root/morpho-common/sbin/run_morpho.sh"
 				interactive = false
 			}
