@@ -1,3 +1,7 @@
+0. Build docker images by running:
+
+	./docker/build.sh
+
 1. Prerequisites
 	In order to be able to run nomad/docker based test network you need to have the following software installed:
 		- docker
@@ -9,7 +13,7 @@
 
 			./nomad.conf
 
-		Your local hostname for "x230" (my local hostname):
+		Your local hostname for "e2e" (my local hostname):
 	
 			in file "./hcl/infra.hcl":
 
