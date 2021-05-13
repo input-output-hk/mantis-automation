@@ -1,0 +1,13 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "ERC20"
+    command: "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+    command: "ncp smartcontracts/openzeppelin/* openzeppelin-contracts/"
+    command: "ncd openzeppelin-contracts"
+    command: ". ~/.profile"
+    command: "nnvm use v14.17.0 &&\nnpm install"
+    command: "nnpx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
+    agents:
+    - "host=e2e.mantis.ws"
