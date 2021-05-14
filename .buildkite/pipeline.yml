@@ -8,6 +8,7 @@ steps:
     command: "ncd openzeppelin-contracts"
     command: ". ~/.profile"
     command: "nnvm use v14.17.0 &&\nnpm install"
+		command: "nnvm install mocha-junit-reporter"
     command: "nnpx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
     - "host=e2e.mantis.ws"
