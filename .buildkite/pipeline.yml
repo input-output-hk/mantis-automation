@@ -3,6 +3,7 @@ env:
 
 steps:
   - label: "ERC20"
+    command: "echo test"
     command: "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
     command: "ncp smartcontracts/openzeppelin/* openzeppelin-contracts/"
     command: "ncd openzeppelin-contracts"
