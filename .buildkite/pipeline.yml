@@ -11,8 +11,9 @@ steps:
     cp smartcontracts/openzeppelin/* openzeppelin-contracts/ &&
     cd openzeppelin-contracts &&
     . ~/.profile &&
-    nvm use v14.17.0 &&\nnpm install &&
-    nvm install mocha-junit-reporter &&
+    nvm use v14.17.0 &&
+		npm install &&
+    npm install mocha-junit-reporter &&
     npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
     - "host=e2e.mantis.ws"
