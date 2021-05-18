@@ -3,7 +3,7 @@ env:
 
 steps:
     #command: "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
-  - command: "git clone https://github.com/krzysztofpaliga-iohk/openzeppelin-contracts.git &&
+  - command: 'git clone https://github.com/krzysztofpaliga-iohk/openzeppelin-contracts.git &&
     cd openzeppelin-contracts && 
 		git checkout one_sc_test &&
 		cd .. &&
@@ -13,13 +13,8 @@ steps:
     nvm use v14.17.0 &&
 		npm install &&
     npm install mocha-junit-reporter &&
-    npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
-    artifact_paths: "openzeppelin-contracts/test-results.xml"
+    npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&
+    cat openzeppelin-contracts/test-results.xml | buildkite-agent annotate --style "success" --context "junit"'
+    artifact_paths: "openzeppelin-contracts/test-results.xmlr"
     agents:
     - "host=e2e.mantis.ws"
-  - wait: ~
-    continue_on_failure: true
-  - command: 'cat openzeppelin-contracts/test-results.xml | buildkite-agent annotate --style "success" --context "junit"'
-  #- plugins:
-  #    - junit-annotate#v1.9.0:
-  #        artifacts: openzeppelin-contracts/test-results.xml
