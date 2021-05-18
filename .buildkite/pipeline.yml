@@ -2,7 +2,9 @@ env:
   BUILDKITE_CLEAN_CHECKOUT: true
 
 steps:
-  - command: 'git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git &&
+  - label: "ERC20"
+    command: 
+    'git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git &&
     cp smartcontracts/openzeppelin/* openzeppelin-contracts/ &&
     cd openzeppelin-contracts &&
     . ~/.profile &&
@@ -12,4 +14,4 @@ steps:
     npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&'
     artifact_paths: "openzeppelin-contracts/mochawesome-report/mochawesome.html"
     agents:
-    - "host=e2e.mantis.ws"
+      - "host=e2e.mantis.ws"
