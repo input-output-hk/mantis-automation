@@ -2,11 +2,7 @@ env:
   BUILDKITE_CLEAN_CHECKOUT: true
 
 steps:
-    #command: "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
-  - command: 'git clone https://github.com/krzysztofpaliga-iohk/openzeppelin-contracts.git &&
-    cd openzeppelin-contracts && 
-		git checkout one_sc_test &&
-		cd .. &&
+  - command: 'git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git &&
     cp smartcontracts/openzeppelin/* openzeppelin-contracts/ &&
     cd openzeppelin-contracts &&
     . ~/.profile &&
