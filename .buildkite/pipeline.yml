@@ -10,7 +10,6 @@ steps:
 		npm install &&
     npm install mochawesome &&
     npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&'
-    parallelism: 5
     artifact_paths: "openzeppelin-contracts/mochawesome-report/mochawesome.html"
     agents:
     - "host=e2e.mantis.ws"
