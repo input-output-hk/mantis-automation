@@ -17,3 +17,9 @@ steps:
     npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
     - "host=e2e.mantis.ws"
+		artifact_paths: mantis-automation/openzeppelin-contracts/test-results.xml
+	- wait: ~
+		continue_on_failure: true
+	- plugins:
+		- junit-annotate#v1.9.0:
+				artifacts: mantis-automation/openzeppelin-contracts/test-results.xml

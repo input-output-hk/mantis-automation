@@ -53,8 +53,8 @@ module.exports = {
     outputFile: argv.ci ? 'gas-report.txt' : undefined,
   },
 	mocha: {
-		timeout: 720000,
-//		reporter: "mocha-junit-reporter"
+		timeout: 120000,
+		reporter: "mocha-junit-reporter"
 	//	grep: "revoke",
 //		invert: true
 	}
