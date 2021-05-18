@@ -8,11 +8,8 @@ steps:
     . ~/.profile &&
     nvm use v14.17.0 &&
 		npm install &&
-    npm install mocha-junit-reporter &&
-    npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&
-    wait $! &&
-    junit2html test-results.xml test-results.html &&
-    cat test-results.xml | buildkite-agent annotate --style "success" --context "junit"'
-    artifact_paths: "openzeppelin-contracts/test-results.html"
+    npm install mochawesome &&
+    npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&'
+    artifact_paths: "openzeppelin-contracts/mochawesome-report/mochawesome.html"
     agents:
     - "host=e2e.mantis.ws"

@@ -54,8 +54,6 @@ module.exports = {
   },
 	mocha: {
 		timeout: 120000,
-		reporter: "mocha-junit-reporter"
-	//	grep: "revoke",
-//		invert: true
+		reporter: "mochawesome"
 	}
 };
