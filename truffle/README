@@ -7,8 +7,7 @@ It is gonna take some time for the node to synchronize.
 
 2. Then we acquire a blockchain address:
 
-	curl -X POST -H "Content-Type: application/json" \                               10:21:36
-     -d '{
+	curl -X POST -H "Content-Type: application/json" -d '{
            "jsonrpc": "2.0",
            "method": "personal_newAccount",
            "params": ["<passphrase>"],
