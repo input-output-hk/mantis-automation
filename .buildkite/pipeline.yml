@@ -15,7 +15,7 @@ steps:
     npm install mocha-junit-reporter &&
     npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&
     wait $! &&
-    cat openzeppelin-contracts/test-results.xml | buildkite-agent annotate --style "success" --context "junit"'
+    cat test-results.xml | buildkite-agent annotate --style "success" --context "junit"'
     artifact_paths: "openzeppelin-contracts/test-results.xml"
     agents:
     - "host=e2e.mantis.ws"
