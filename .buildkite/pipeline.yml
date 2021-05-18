@@ -3,12 +3,15 @@ env:
 
 steps:
   - label: "ERC20"
-    command: "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
-    command: "ncp smartcontracts/openzeppelin/* openzeppelin-contracts/"
-    command: "ncd openzeppelin-contracts"
-    command: ". ~/.profile"
-    command: "nnvm use v14.17.0 &&\nnpm install"
-    command: "nnvm install mocha-junit-reporter"
-    command: "nnpx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
+    command: 
+      -  "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+      -  "wait $! && cp smartcontracts/openzeppelin/* openzeppelin-contracts/"
+      -  "wait $! && cd openzeppelin-contracts"
+      -  "wait $! && . ~/.profile"
+      -  "wait $! && nvm use v14.17.0"
+      -  "wait $! && npm install"
+      -  "wait $! && npm install mochawesome"
+      -  "wait $! && npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
-    - "host=e2e.mantis.ws"
+      - "host=e2e.mantis.ws"
+    artifact_paths: "openzeppelin-contracts/mochawesome-report"
