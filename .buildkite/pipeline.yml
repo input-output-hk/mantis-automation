@@ -2,9 +2,8 @@ env:
   BUILDKITE_CLEAN_CHECKOUT: true
 
 steps:
-  - label: "ERC20"
     #command: "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
-    command: "git clone https://github.com/krzysztofpaliga-iohk/openzeppelin-contracts.git &&
+  - command: "git clone https://github.com/krzysztofpaliga-iohk/openzeppelin-contracts.git &&
     cd openzeppelin-contracts && 
 		git checkout one_sc_test &&
 		cd .. &&
@@ -15,8 +14,11 @@ steps:
 		npm install &&
     npm install mocha-junit-reporter &&
     npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
+    artifact_paths: "openzeppelin-contracts/test-results.xml"
     agents:
     - "host=e2e.mantis.ws"
-    plugins:
-        - junit-annotate#v1.9.0:
-            artifacts: openzeppelin-contracts/test-results.xml artifact_paths: "openzeppelin-contracts/test-results.xml"
+  - wait: ~
+    continue_on_failure: true
+  - plugins:
+      - junit-annotate#v1.9.0:
+          artifacts: openzeppelin-contracts/test-results.xml
