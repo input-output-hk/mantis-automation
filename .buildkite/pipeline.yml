@@ -17,6 +17,8 @@ steps:
     artifact_paths: "openzeppelin-contracts/test-results.xml"
     agents:
     - "host=e2e.mantis.ws"
+  - wait: ~
+    continue_on_failure: true
   - plugins:
       - junit-annotate#v1.9.0:
           artifacts: openzeppelin-contracts/test-results.xml
