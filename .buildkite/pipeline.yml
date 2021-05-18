@@ -19,7 +19,7 @@ steps:
     - "host=e2e.mantis.ws"
   - wait: ~
     continue_on_failure: true
-  - command: 'buildkite-agent annotate --style "success" --context "junit"'
+  - command: 'cat openzeppelin-contracts/test-results.xml | buildkite-agent annotate --style "success" --context "junit"'
   #- plugins:
   #    - junit-annotate#v1.9.0:
   #        artifacts: openzeppelin-contracts/test-results.xml
