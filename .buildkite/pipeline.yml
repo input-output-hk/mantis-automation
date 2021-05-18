@@ -9,9 +9,9 @@ steps:
     cd openzeppelin-contracts &&
     . ~/.profile &&
     nvm use v14.17.0 &&
-		npm install &&
+    npm install &&
     npm install mochawesome &&
-    npx hardhat --network sagano test test/token/ERC20/ERC20.test.js &&'
+    npx hardhat --network sagano test test/token/ERC20/ERC20.test.js'
     artifact_paths: "openzeppelin-contracts/mochawesome-report/mochawesome.html"
     agents:
       - "host=e2e.mantis.ws"
