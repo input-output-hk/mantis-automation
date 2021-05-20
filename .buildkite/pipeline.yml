@@ -9,8 +9,10 @@ steps:
       -  "wait $! && cd openzeppelin-contracts"
       -  "wait $! && . ~/.profile"
       -  "wait $! && nvm use v14.17.0"
+      -  "wait $! && npm install @nomiclabs/hardhat-solhint"
       -  "wait $! && npm install"
       -  "wait $! && npm install mochawesome"
+      -  "wait $! && sed -i '/if (!expectedError/,/}/d' node_modules/@openzeppelin/test-helpers/src/expectRevert.js"
       -  "wait $! && npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
       - "host=e2e.mantis.ws"
@@ -19,12 +21,14 @@ steps:
       continue_on_failure: true
   
   - label: "ERC20 report"
-    env:
-      BUILDKITE_CLEAN_CHECKOUT: false 
     command:
       -  "cd openzeppelin-contracts"
       -  "tar cvf mochawesome-report.tar mochawesome-report"
+    plugins:
+      - 'uber-workflow/run-without-clone'
     agents:
       -  "host=e2e.mantis.ws"
     artifact_paths: 
       -  "openzeppelin-contracts/mochawesome-report.tar"
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: false
