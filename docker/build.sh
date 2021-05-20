@@ -13,10 +13,10 @@ explorer/build.sh
 
 hoverfly/build.sh
 
-passive/build.sh
+passive/build.sh 
 
 bootstrap/build.sh
 
 miner/build.sh
 
-mocked-miner/build.sh
+#mocked-miner/build.sh

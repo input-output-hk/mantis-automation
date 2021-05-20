@@ -53,7 +53,9 @@ module.exports = {
     outputFile: argv.ci ? 'gas-report.txt' : undefined,
   },
 	mocha: {
-		timeout: 360000,
-		reporter: "mochawesome"
+		timeout: 180000,
+		reporter: "mochawesome",
+		retries: 5,
+    bail: true
 	}
 };
