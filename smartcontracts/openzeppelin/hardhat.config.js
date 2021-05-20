@@ -44,7 +44,7 @@ module.exports = {
     },
 		sagano: {
 			blockGasLimit: 8000000,
-			url: 'http://127.0.0.1:8546',
+			url: 'https://mantis-testnet-passive-0.mantis.ws',
 			accounts: {mnemonic: mnemonic}
 		}
   },
