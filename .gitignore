@@ -13,3 +13,4 @@ nomad/distributions/passive/*
 nomad/distributions/mocked-miner/*
 !nomad/distributions/mocked-miner/.gitkeep
 *.log
+performance/caliper/caliper-benchmarks

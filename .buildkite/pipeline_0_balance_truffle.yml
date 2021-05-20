@@ -1,0 +1,16 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "0 balance truffle"
+    command:
+      - "pwd && ls"
+      - "cd bugs/0_balance"
+      - "pwd && ls" 
+      - "./setup_account.sh"
+      - "cd MetaCoin"
+      - "npm install"
+      - "npm install truffle"
+      - "npx truffle migrate --network sagano --reset"
+    agents:
+      - "host=e2e.mantis.ws"
