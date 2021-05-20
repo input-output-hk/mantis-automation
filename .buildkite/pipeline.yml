@@ -14,4 +14,17 @@ steps:
       -  "wait $! && npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
       - "host=e2e.mantis.ws"
-    artifact_paths: "openzeppelin-contracts/mochawesome-report"
+  
+  - wait: 
+      continue_on_failure: true
+  
+  - label: "ERC20 report"
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: false 
+    command:
+      -  "cd openzeppelin-contracts"
+      -  "tar cvf mochawesome-report.tar mochawesome-report"
+    agents:
+      -  "host=e2e.mantis.ws"
+    artifact_paths: 
+      -  "openzeppelin-contracts/mochawesome-report.tar"
