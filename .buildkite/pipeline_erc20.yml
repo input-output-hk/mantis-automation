@@ -1,0 +1,21 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "ERC20"
+    command: 
+      -  "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
+      -  "wait $! && cp smartcontracts/openzeppelin/* openzeppelin-contracts/"
+      -  "wait $! && cd openzeppelin-contracts"
+      -  "wait $! && . ~/.profile"
+      -  "wait $! && nvm use v14.17.0"
+      -  "wait $! && npm install"
+      -  "wait $! && npm install mochawesome"
+      -  "wait $! && npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
+    wait:
+      continue_on failure: true
+      -  "wait $! && tar cvf mochawesome-report.tar mochawesome-report"
+    agents:
+      - "host=e2e.mantis.ws"
+    artifact_paths: 
+      - "openzeppelin-contracts/mochawesome-report.tar"
