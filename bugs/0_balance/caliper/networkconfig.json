@@ -7,7 +7,7 @@
           }
     },
     "ethereum": {
-        "url": "http://localhost:8546",
+        "url": "https://mantis-testnet-passive-0.mantis.ws",
         "contractDeployerAddress": "0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958",
         "contractDeployerAddressPassword": "qwertyuiop",
         "fromAddress": "0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958",

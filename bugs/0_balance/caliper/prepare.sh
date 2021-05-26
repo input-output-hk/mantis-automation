@@ -6,7 +6,7 @@ npm_or_exit () {
 }
 
 8546_or_exit () {
-	nc -z localhost 8546 || (echo "no 8546 port open; did you run mantis client?; exiting" && exit 1)
+	nc -z mantis-testnet-passive-0.mantis.ws 443 || (echo "cant connect to https:mantis.testnet-passive-0.mantis.ws; exiting" && exit 1)
 }
 
 clone_benchmarks () {
