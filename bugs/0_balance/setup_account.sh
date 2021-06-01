@@ -3,7 +3,7 @@ curl -X POST -H "Content-Type: application/json" \
                                       -d '{
                                       "jsonrpc": "2.0",
                                         "method": "personal_importRawKey", 
-                                        "params": ["0ad9b5c47bf18ffae431ac985bfcb745f5cddff7ff09f0e8e8045e56d1fd6492", "qwertyuiop"],
+                                        "params": ["44d83b6498db69a92ab53987f986640bec6f0c40cc5b7153690a7fbf0d135765", "qwertyuiop"],
                                         "id": 1
                                       }' https://mantis-testnet-passive-0.mantis.ws 
 
@@ -11,7 +11,7 @@ curl -X POST -H "Content-Type: application/json" \
                                       -d '{
                                       "jsonrpc": "2.0",
                                         "method": "personal_unlockAccount", 
-                                        "params": ["0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958", "qwertyuiop", 0],
+                                        "params": ["0xa4713d6ab3ad3c77bee2156037e2d7953b45eafe", "qwertyuiop", 0],
                                         "id": 1
                                       }' https://mantis-testnet-passive-0.mantis.ws
 

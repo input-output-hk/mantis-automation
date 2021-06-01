@@ -10,7 +10,7 @@ module.exports = {
       host: "127.0.0.1",
 			port: 8546,
       network_id: "*",
-			from: "0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958",
+			from: "0xa4713d6ab3ad3c77bee2156037e2d7953b45eafe",
 			gas: 8000000,
 			networkCheckTimeout: 60000,
     },
