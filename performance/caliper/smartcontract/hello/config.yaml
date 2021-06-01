@@ -1,0 +1,22 @@
+test:
+  name: hello
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: query
+      txNumber: 86400000
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 0.2
+      workload:
+        module: ../smartcontract/hello/query.js
+#    - label: update
+#      txNumber: 1000
+#      rateControl:
+#        type: fixed-rate
+#        opts:
+#          tps: 1
+#      workload:
+#        module: ../smartcontract/hello/update.js

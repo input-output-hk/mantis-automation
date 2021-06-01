@@ -7,11 +7,11 @@
           }
     },
     "ethereum": {
-        "url": "http://localhost:8546",
-        "contractDeployerAddress": "DEPLOYER_ADDRESS",
-        "contractDeployerAddressPassword": "DEPLOYER_PASSWORD",
-        "fromAddress": "FROM_ADDRESS",
-        "fromAddressPassword": "FROM_PASSWORD",
+        "url": "https://mantis-e2e-miner-4.mantis.ws",
+        "contractDeployerAddress": "0x9f8d7f26051a09901bf84ec88f6c6cf6c8f09d57",
+        "contractDeployerAddressPassword": "qwertyuiop",
+        "fromAddress": "0x9f8d7f26051a09901bf84ec88f6c6cf6c8f09d57",
+        "fromAddressPassword": "qwertyuiop",
         "transactionConfirmationBlocks": 2,
         "contracts": {
             "simple": {
@@ -21,6 +21,13 @@
 										"open": 8000000,
                     "query": 8000000,
                     "transfer": 8000000
+                }
+            },
+            "hello": {
+                "path": "../smartcontract/hello/hello.json",
+                "estimateGas": true,
+                "gas": {
+                    "query": 8000000
                 }
             }
         }
