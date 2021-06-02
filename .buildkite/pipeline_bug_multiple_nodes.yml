@@ -1,0 +1,17 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "bug multiple nodes"
+    command: 
+      -  "cd bugs/multi_nodes"
+      -  "./prepare.sh"
+      -  "cd hello"
+      -  "npm install"
+      -  "cd ../mantis"
+      -  "./setup_account_passive.sh"
+      -  "./run_passive.sh"
+    agents:
+      - "host=e2e.mantis.ws"
+    artifact_paths: 
+      - "performance/caliper/caliper-benchmarks/report.html"

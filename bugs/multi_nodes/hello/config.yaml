@@ -5,13 +5,13 @@ test:
     number: 1
   rounds:
     - label: query
-      txNumber: 86400000
+      txNumber: 10
       rateControl:
         type: fixed-rate
         opts:
           tps: 0.01
       workload:
-        module: ../smartcontract/hello/query.js
+        module: ../hello/query.js
 #    - label: update
 #      txNumber: 1000
 #      rateControl:
