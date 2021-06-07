@@ -9,7 +9,7 @@ test:
       rateControl:
         type: fixed-rate
         opts:
-          tps: 0.2
+          tps: 5
       workload:
         module: ../smartcontract/hello/query.js
 #    - label: update
