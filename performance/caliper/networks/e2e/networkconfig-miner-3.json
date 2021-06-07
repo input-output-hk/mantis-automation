@@ -14,15 +14,6 @@
         "fromAddressPassword": "qwertyuiop",
         "transactionConfirmationBlocks": 2,
         "contracts": {
-            "simple": {
-                "path": "./src/ethereum/simple/simple.json",
-                "estimateGas": true,
-                "gas": {
-										"open": 8000000,
-                    "query": 8000000,
-                    "transfer": 8000000
-                }
-            },
             "hello": {
                 "path": "../smartcontract/hello/hello.json",
                 "estimateGas": true,
