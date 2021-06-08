@@ -16,7 +16,7 @@
         "contracts": {
             "hello": {
                 "path": "../smartcontract/hello/hello.json",
-                "estimateGas": true,
+                "estimateGas": false,
                 "gas": {
                     "query": 8000000
                 }
