@@ -1,9 +1,10 @@
 env:
   BUILDKITE_CLEAN_CHECKOUT: true
+  OVERRIDE_BUILDKITE_REPO: "git@github.com:input-output-hk/mantis-automation.git"
 
 steps:
   - label: "ERC20"
-    command: 
+    command:
       -  "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
       -  "wait $! && cp smartcontracts/openzeppelin/* openzeppelin-contracts/"
       -  "wait $! && cd openzeppelin-contracts"
@@ -16,10 +17,10 @@ steps:
       -  "wait $! && npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
     agents:
       - "host=e2e.mantis.ws"
-  
-  - wait: 
+
+  - wait:
       continue_on_failure: true
-  
+
   - label: "ERC20 report"
     command:
       -  "cd openzeppelin-contracts"
@@ -28,7 +29,7 @@ steps:
       - 'uber-workflow/run-without-clone'
     agents:
       -  "host=e2e.mantis.ws"
-    artifact_paths: 
+    artifact_paths:
       -  "openzeppelin-contracts/mochawesome-report.tar"
     env:
       BUILDKITE_CLEAN_CHECKOUT: false
