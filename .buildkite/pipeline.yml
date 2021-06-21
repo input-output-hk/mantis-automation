@@ -1,6 +1,7 @@
 env:
   BUILDKITE_CLEAN_CHECKOUT: true
   OVERRIDE_BUILDKITE_REPO: "git@github.com:input-output-hk/mantis-automation.git"
+  OVERRIDE_BUILDKITE_PIPELINE_NAME: "mantis-automation"
 
 steps:
   - label: "ERC20"
