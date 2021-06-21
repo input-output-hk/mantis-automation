@@ -7,18 +7,31 @@ env:
 steps:
   - label: "ERC20"
     command:
+      -  "pullrequest/setup_pottery_for_commit.sh"
       -  "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
       -  "wait $! && cp smartcontracts/openzeppelin/* openzeppelin-contracts/"
       -  "wait $! && cd openzeppelin-contracts"
+      -  "wait $! && export MANTIS_IP=$(sudo docker network inspect nomad_mantis | more | grep bootstrap-pr-1 -A 5 | grep -i ipv4address | grep -o [0-9]*\\\\.[0-9]*\\\\.[0-9]*\\\\.[0-9]*)"
+      -  "wait $! && echo $MANTIS_IP"
+      -  "wait $! && sed -i \"s|https://mantis-testnet-passive-0.mantis.ws|http://$MANTIS_IP:8546|g\" hardhat.config.js"
       -  "wait $! && . ~/.profile"
       -  "wait $! && nvm use v14.17.0"
       -  "wait $! && npm install @nomiclabs/hardhat-solhint"
       -  "wait $! && npm install"
-      -  "wait $! && npm install mochawesome"
+      -  "wait $! && npm install mocha mochawesome"
       -  "wait $! && sed -i '/if (!expectedError/,/}/d' node_modules/@openzeppelin/test-helpers/src/expectRevert.js"
       -  "wait $! && npx hardhat --network sagano test test/token/ERC20/ERC20.test.js"
+      -  'wait $! && export FAILED=$(cat mochawesome-report/mochawesome.json | grep -i "fail.: true" | wc -l)'
+      -  "wait $! && echo $FAILED"
+      -  "wait $! && export TIMED_OUT=$(cat mochawesome-report/mochawesome.json | grep -i timeout | grep -i message | grep -i exceeded | wc -l)"
+      -  'wait $! && echo $TIMED_OUT'
+      -  'wait $! && if [ "$TIMED_OUT" -eq "$FAILED" ] ;then exit 0;else exit 2; fi'
     agents:
       - "host=e2e.mantis.ws"
+    concurrency: 1
+    concurrency_group: 'erc20-pr'
+    soft_fail:
+      - exit_status: 1
 
   - wait:
       continue_on_failure: true
