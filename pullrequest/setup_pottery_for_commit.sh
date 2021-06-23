@@ -22,6 +22,10 @@ sed -i "s/restricted-pow/pow/g" mantis-client/conf/pottery.conf
 
 cp -r mantis-client/* ../../../../nomad/distributions/bootstrap-common/
 
+sed -i 's|mining-enabled = true|mining-enabled = false|g' mantis-client/conf/pottery.conf
+
+cp -r mantis-client/* ../../../../nomad/distributions/passive/
+
 cd ../../../../nomad
 cd persistance/dag
 cat dag.tar.gz.* | tar xzvf -
@@ -43,6 +47,7 @@ export NOMAD_PORT_serf=4688
 
 cd ../pullrequest
 nomad job run hcl/bootstrap-pr.hcl
+nomad job run hcl/passive-pr.hcl
 
 until sudo docker ps | grep bootstrap-pr | head -n 1 | awk '{print $1}' | xargs sudo docker logs | grep -i "Loading DAG from file 99"; do echo LOADING DAG; sleep 30; done
 

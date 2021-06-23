@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -f pullrequest/cleanup ]
+if [ -f pullrequest/cleanup ] || [ $BUILDKITE_RETRY_COUNT -eq 10 ]
 then
 	sudo rm -rf nomad/persistance/bootstrap-?/dot.mantis/pottery/rocksdb
 	sudo rm -rf nomad/persistance/bootstrap-?/dot.mantis/pottery/logs
