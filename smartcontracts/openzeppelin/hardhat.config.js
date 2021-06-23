@@ -55,7 +55,6 @@ module.exports = {
 	mocha: {
 		timeout: 180000,
 		reporter: "mochawesome",
-		retries: 5,
-    bail: true
+//		retries: 3,
 	}
 };
