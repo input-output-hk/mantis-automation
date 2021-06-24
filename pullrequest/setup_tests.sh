@@ -6,8 +6,6 @@ git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git
 cp ../smartcontracts/openzeppelin/* openzeppelin-contracts/
 cd openzeppelin-contracts
 
-sed -i "s|testnet-passive|e2e-miner|g" hardhat.config.js
-
 . ~/.profile
 nvm use v14.17.0
 npm install @nomiclabs/hardhat-solhint
