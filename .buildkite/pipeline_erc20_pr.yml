@@ -15,6 +15,9 @@ steps:
     agents:
       - "host=e2e.mantis.ws"
  
+  - wait: 
+      continue_on_failure: false
+  
   - label: "ERC20"
     command: 
       -  "pullrequest/run_tests.sh"
