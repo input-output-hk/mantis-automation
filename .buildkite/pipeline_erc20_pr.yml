@@ -1,8 +1,5 @@
 env:
   BUILDKITE_CLEAN_CHECKOUT: "false"
-  OVERRIDE_BUILDKITE_REPO: "git@github.com:input-output-hk/mantis-automation.git"
-  OVERRIDE_BUILDKITE_PIPELINE_SLUG: "mantis-automation"
-  OVERRIDE_BUILDKITE_BRANCH: "main"
 
 steps:
   - label: "Setup tests"
