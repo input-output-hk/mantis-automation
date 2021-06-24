@@ -8,8 +8,6 @@ steps:
   - label: "Setup tests"
     command: 
       -  "pullrequest/setup_tests.sh"
-    plugins:
-      - 'uber-workflow/run-without-clone'
     env:
       BUILDKITE_CLEAN_CHECKOUT: "true"
     agents:
