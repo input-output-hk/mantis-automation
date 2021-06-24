@@ -5,23 +5,13 @@ env:
   OVERRIDE_BUILDKITE_BRANCH: "main"
 
 steps:
-  - label: "Setup mantis"
-    command:
-      -  "pullrequest/setup_pottery_for_commit.sh"
-    agents:
-      - "host=e2e.mantis.ws"
-    concurrency: 1
-    concurrency_group: 'erc20-pr'
-    env:
-      BUILDKITE_CLEAN_CHECKOUT: "true"
-
   - label: "Setup tests"
     command: 
       -  "pullrequest/setup_tests.sh"
     plugins:
       - 'uber-workflow/run-without-clone'
     env:
-      BUILDKITE_CLEAN_CHECKOUT: "false"
+      BUILDKITE_CLEAN_CHECKOUT: "true"
     agents:
       - "host=e2e.mantis.ws"
     concurrency: 1
