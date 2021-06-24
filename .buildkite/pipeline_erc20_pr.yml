@@ -14,9 +14,10 @@ steps:
       BUILDKITE_CLEAN_CHECKOUT: "true"
     agents:
       - "host=e2e.mantis.ws"
-    concurrency: 1
-    concurrency_group: 'erc20-pr'
  
+  - wait: 
+      continue_on_failure: true
+  
   - label: "ERC20"
     command: 
       -  "pullrequest/run_tests.sh"
