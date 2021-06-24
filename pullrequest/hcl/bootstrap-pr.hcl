@@ -119,7 +119,7 @@ job "bootstrap-pr" {
 	}
 
 	group "bootstrap-pr-2" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {
@@ -233,7 +233,7 @@ job "bootstrap-pr" {
 	}
 
 	group "bootstrap-pr-3" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {
