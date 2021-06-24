@@ -2,8 +2,6 @@
 
 cd "$(dirname "$0")"
 
-touch cleanup
-
 cd openzeppelin-contracts
 
 npx hardhat --network sagano test test/token/ERC20/ERC20.test.js
