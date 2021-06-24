@@ -14,8 +14,6 @@ steps:
       BUILDKITE_CLEAN_CHECKOUT: "true"
     agents:
       - "host=e2e.mantis.ws"
-    concurrency: 1
-    concurrency_group: 'erc20-pr'
  
   - label: "ERC20"
     command: 
