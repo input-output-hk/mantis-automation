@@ -2,7 +2,7 @@ test:
   name: hello
   workers:
     type: local
-    number: 1
+    number: 0.1
   rounds:
     - label: query
       txNumber: 100 
