@@ -5,7 +5,7 @@ test:
     number: 1
   rounds:
     - label: query
-      txNumber: 100 
+      txNumber: 50 
       rateControl:
         type: fixed-rate
         opts:
