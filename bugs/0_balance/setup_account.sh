@@ -14,4 +14,3 @@ curl -X POST -H "Content-Type: application/json" \
                                         "params": ["0xa4713d6ab3ad3c77bee2156037e2d7953b45eafe", "qwertyuiop", 0],
                                         "id": 1
                                       }' https://mantis-testnet-passive-0.mantis.ws
-
