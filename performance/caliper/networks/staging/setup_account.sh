@@ -14,5 +14,4 @@ curl -X POST -H "Content-Type: application/json" \
                                         "params": ["0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958", "qwertyuiop", 0],
                                         "id": 1
                                       }' https://mantis-staging-miner-0.mantis.ws
-sleep 600
-./$0 &
+sleep 600 && ./$0 &
