@@ -8,7 +8,8 @@ ARG MANTIS_DIST="mantis-dist"
 WORKDIR ${USER_HOME}
 RUN git clone ${MANTIS_GIT_URL}
 WORKDIR ${USER_HOME}/${MANTIS}
-RUN git checkout origin/develop
+#RUN git checkout origin/develop
+RUN git checkout ETCM-1016-erc20-kevm 
 RUN git submodule update --recursive --init
 RUN sbt dist
 

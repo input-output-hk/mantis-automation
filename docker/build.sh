@@ -17,6 +17,8 @@ passive/build.sh
 
 bootstrap/build.sh
 
+bootstrap-mining-kevm/build.sh
+
 miner/build.sh
 
 mocked-miner/build.sh
