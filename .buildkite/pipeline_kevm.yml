@@ -1,0 +1,43 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "Set up kevm network"
+    command: 
+      -  "kevm/setup_pottery_for_kevm.sh"
+    agents:
+      - "host=e2e.mantis.ws"
+    concurrency: 1
+    concurrency_group: 'erc20-kevm'
+  
+  - wait: 
+      continue_on_failure: false
+  
+  - label: "Set up tests"
+    command:
+      -  "kevm/setup_tests.sh"
+    plugins:
+      - 'uber-workflow/run-without-clone'
+    agents:
+      -  "host=e2e.mantis.ws"
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: false
+    concurrency: 1
+    concurrency_group: 'erc20-kevm'
+
+  - wait: 
+      continue_on_failure: false
+
+  - label: "Run tests"
+    command:
+      -  "kevm/run_tests.sh"
+    plugins:
+      - 'uber-workflow/run-without-clone'
+    agents:
+      -  "host=e2e.mantis.ws"
+    artifact_paths: 
+      -  "openzeppelin-contracts/mochawesome-report.tar"
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: false
+    concurrency: 1
+    concurrency_group: 'erc20-kevm'
