@@ -8,9 +8,9 @@ echo "Copuing dag"
 cd ../../nomad/persistance/dag
 cat dag.tar.gz.* | tar xzvf -
 ls -alsh
-cp -r full-R23-0000000000000000 ../../../docker/bootstrap-mining-kevm/ 
+mv full-R23-0000000000000000 ../../../docker/bootstrap-mining-kevm/ 
 
-cd ../../../docker/bootstra-mining-kevm
+cd ../../../docker/bootstrap-mining-kevm
 
 for ((i=1;i<=5;i++)); 
 do 
