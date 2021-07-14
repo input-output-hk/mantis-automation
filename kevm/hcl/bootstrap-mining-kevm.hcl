@@ -203,7 +203,7 @@ job "d-bootstrap-mining-kevm" {
 	}
 	
 	group "bootstrap-mining-kevm-4" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {
@@ -269,7 +269,7 @@ job "d-bootstrap-mining-kevm" {
 	}
 
 	group "bootstrap-mining-kevm-5" {
-		count = 1
+		count = 0
 
 		network {
 			port "rpc" {
