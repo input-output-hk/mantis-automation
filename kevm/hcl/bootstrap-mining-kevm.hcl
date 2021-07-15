@@ -52,8 +52,8 @@ job "d-bootstrap-mining-kevm" {
 			}
 
 			resources {
-				#memory = 4096
-				memory = 768
+				memory = 6144
+				#memory = 768
 				#memory = 3072
 				cpu = 200
 			}
@@ -118,8 +118,8 @@ job "d-bootstrap-mining-kevm" {
 			}
 
 			resources {
-				#memory = 4096
-				memory = 768
+				memory = 6144
+				#memory = 768
 				#memory = 3072
 				cpu = 200
 			}
@@ -184,8 +184,8 @@ job "d-bootstrap-mining-kevm" {
 			}
 
 			resources {
-				#memory = 4096
-				memory = 768 
+				memory = 6144
+				#memory = 768 
 				#memory = 3072
 				cpu = 200
 			}
@@ -250,8 +250,8 @@ job "d-bootstrap-mining-kevm" {
 			}
 
 			resources {
-				#memory = 4096
-				memory = 768
+				memory = 6144
+				#memory = 768
 				#memory = 3072
 				cpu = 200
 			}
@@ -316,8 +316,8 @@ job "d-bootstrap-mining-kevm" {
 			}
 
 			resources {
-				#memory = 4096
-				memory = 768
+				memory = 6144
+				#memory = 768
 				#memory = 3072
 				cpu = 200
 			}
