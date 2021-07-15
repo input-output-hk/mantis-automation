@@ -15,6 +15,8 @@ hoverfly/build.sh
 
 passive/build.sh
 
+passive-kevm/build.sh
+
 bootstrap/build.sh
 
 bootstrap-mining-kevm/build.sh
