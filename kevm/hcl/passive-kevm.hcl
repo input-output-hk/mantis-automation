@@ -53,9 +53,9 @@ job "d-passive-kevm" {
 			}
 
 			resources {
-				#memory = 3072
+				memory = 4096
 				#memory = 2048
-				memory = 1024
+				#memory = 1024
 				cpu = 200
 			}
 
