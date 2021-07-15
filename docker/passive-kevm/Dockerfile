@@ -1,6 +1,7 @@
 FROM passive:local
 
 ADD kevm-vm /bin/kevm-vm
+ADD full-R23-0000000000000000 /root/.ethash/full-R23-0000000000000000
 
 ARG USER_HOME="/root"
 ARG MANTIS_DIST="mantis-dist"

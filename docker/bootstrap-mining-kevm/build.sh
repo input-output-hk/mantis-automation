@@ -4,7 +4,7 @@ cd "$(dirname "$0")"
 echo "Copying kevm-vm"
 cp ../../nomad/provisioning/kevm/kevm-vm .
 
-echo "Copuing dag"
+echo "Copying dag"
 cd ../../nomad/persistance/dag
 cat dag.tar.gz.* | tar xzvf -
 ls -alsh
