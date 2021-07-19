@@ -1,9 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 
-echo "Copying kevm-vm"
-cp ../../nomad/provisioning/kevm/kevm-vm .
-
 echo "Copying dag"
 cd ../../nomad/persistance/dag
 cat dag.tar.gz.* | tar xzvf -
@@ -24,9 +21,6 @@ do
   echo "Removing node.key"
   rm node.key
 done
-
-echo "Removing kevm-vm"
-rm kevm-vm
 
 echo "Removing dag"
 rm full-R23-0000000000000000
