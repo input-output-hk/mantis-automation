@@ -1,8 +1,7 @@
-FROM passive:local
+FROM passive-kevm:local
 
 ADD node.key /root/.mantis/pottery/node.key
 ADD full-R23-0000000000000000 /root/.ethash/full-R23-0000000000000000
-ADD kevm-vm /usr/bin/kevm-vm
 
 ARG USER_HOME="/root"
 ARG MANTIS_DIST="mantis-dist"
