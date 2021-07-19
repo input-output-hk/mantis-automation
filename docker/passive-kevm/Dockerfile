@@ -1,6 +1,6 @@
 FROM passive:local
 
-RUN runuser -l ubunut -c ". .nix-profile/etc/profile.d/nix && nix build 'github:input-output-hk/mantis?rev=a2ddacb63b2ace46c1800bdae95ae10e54921ab0#kevm' --experimental-features 'flakes nix-command' --substituters https://hydra.mantis.ist --trusted-public-keys 'hydra.mantis.ist-1:4LTe7Q+5pm8+HawKxvmn2Hx0E3NbkYjtf1oWv+eAmTo='"
+RUN runuser -l ubuntu -c ". .nix-profile/etc/profile.d/nix && nix build 'github:input-output-hk/mantis?rev=a2ddacb63b2ace46c1800bdae95ae10e54921ab0#kevm' --experimental-features 'flakes nix-command' --substituters https://hydra.mantis.ist --trusted-public-keys 'hydra.mantis.ist-1:4LTe7Q+5pm8+HawKxvmn2Hx0E3NbkYjtf1oWv+eAmTo='"
 RUN mv /home/ubuntu/result/bin/kevm-vm /usr/bin/kevm-vm
 
 ARG USER_HOME="/root"
