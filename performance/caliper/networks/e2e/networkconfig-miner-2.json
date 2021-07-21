@@ -1,0 +1,26 @@
+{
+    "caliper": {
+        "blockchain": "ethereum",
+        "command" : {
+            "start": "",
+            "end" : ""
+          }
+    },
+    "ethereum": {
+        "url": "https://mantis-e2e-miner-2.mantis.ws",
+        "contractDeployerAddress": "0xd013fe9b834af0b45203fc809e4f5ecd7d7e7fc6",
+        "contractDeployerAddressPassword": "qwertyuiop",
+        "fromAddress": "0xd013fe9b834af0b45203fc809e4f5ecd7d7e7fc6",
+        "fromAddressPassword": "qwertyuiop",
+        "transactionConfirmationBlocks": 2,
+        "contracts": {
+            "hello": {
+                "path": "../smartcontract/hello/hello.json",
+                "estimateGas": true,
+                "gas": {
+                    "query": 8000000
+                }
+            }
+        }
+    }
+}
