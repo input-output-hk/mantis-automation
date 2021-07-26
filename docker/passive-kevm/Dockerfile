@@ -14,4 +14,5 @@ RUN sed -i 's/vm-type = "mantis"/vm-type = "kevm"/g' pottery.conf
 RUN sed -i 's|executable-path = "./bin/mantis-vm"|executable-path = "/usr/bin/kevm-vm"|g' pottery.conf
 RUN sed -i 's|8888|8889|g' pottery.conf
 RUN sed -i 's|@bootstrap-|@bootstrap-mining-kevm-|g' chains/pottery-chain.conf
+RUN sed -i 's|"gasLimit": "0x7A1200"|"gasLimit": "0x1E84800"|g' chains/pottery-genesis.conf
 
