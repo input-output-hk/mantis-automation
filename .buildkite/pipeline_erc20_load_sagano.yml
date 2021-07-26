@@ -1,0 +1,18 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "e2e load"
+    command: 
+      -  "cd performance/caliper"
+      -  "./prepare.sh"
+      -  "cd smartcontract/myerc20"
+      -  "npm install"
+      -  "cd ../../networks/sagano"
+      -  "./setup_account.sh"
+      -  "./prepare_run_myerc20.sh"
+      -  "./run_myerc20.sh"
+    agents:
+      - "host=e2e.mantis.ws"
+    artifact_paths: 
+      - "performance/caliper/caliper-benchmarks/report.html"

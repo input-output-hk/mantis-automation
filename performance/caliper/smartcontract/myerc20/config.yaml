@@ -1,0 +1,14 @@
+test:
+  name: myerc20
+  workers:
+    type: local
+    number: 1
+  rounds:
+    - label: transfer
+      txNumber: 100 
+      rateControl:
+        type: fixed-rate
+        opts:
+          tps: 1
+      workload:
+        module: ../smartcontract/myerc20/transfer.js
