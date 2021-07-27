@@ -1,6 +1,6 @@
 #!/bin/bash
 FAUCET_BACKOFF=60
-for i in {0..4}
+for i in {0..0}
 do
 
 if [ "$i" -eq "0" ]; then
