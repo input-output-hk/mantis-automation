@@ -1,0 +1,18 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "e2e load"
+    command: 
+      -  "cd performance/caliper"
+      -  "./prepare.sh"
+      -  "cd smartcontract/hello"
+      -  "npm install"
+      -  "cd ../../networks/sagano"
+      -  "./prepare_run.sh"
+      -  "./setup_account.sh"
+      -  "./run.sh"
+    agents:
+      - "host=e2e.mantis.ws"
+    artifact_paths: 
+      - "performance/caliper/caliper-benchmarks/report.html"
