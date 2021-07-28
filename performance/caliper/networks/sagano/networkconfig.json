@@ -14,11 +14,11 @@
         "fromAddressPassword": "qwertyuiop",
         "transactionConfirmationBlocks": 2,
         "contracts": {
-            "myerc20": {
-                "path": "../smartcontract/myerc20/myerc20.json",
+            "hello": {
+                "path": "../smartcontract/hello/hello.json",
                 "estimateGas": true,
                 "gas": {
-                    "transfer": 8000000
+                    "query": 8000000
                 }
             }
         }
