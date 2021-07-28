@@ -1,5 +1,10 @@
 #!/bin/bash
 FAUCET_BACKOFF=60
+
+if [ "$1" == "sleep" ]; then
+sleep 600
+fi
+
 for i in {0..4}
 do
 
@@ -144,3 +149,5 @@ curl -X POST -H "Content-Type: application/json" \
 fi
 
 done
+
+./$0 sleep &
