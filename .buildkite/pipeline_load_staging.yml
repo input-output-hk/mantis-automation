@@ -9,6 +9,7 @@ steps:
       -  "cd smartcontract/hello"
       -  "npm install"
       -  "cd ../../networks/staging"
+      -  "./prepare_run.sh"
       -  "./setup_account.sh"
       -  "./run.sh"
     agents:
