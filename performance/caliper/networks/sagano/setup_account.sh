@@ -14,5 +14,12 @@ curl -X POST -H "Content-Type: application/json" \
                                         "params": ["0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958", "qwertyuiop", 0],
                                         "id": 1
                                       }' https://mantis-testnet-passive-0.mantis.ws
+curl -X POST -H "Content-Type: application/json" \
+                                      -d '{
+                                      "jsonrpc": "2.0",
+                                        "method": "faucet_sendFunds", 
+                                        "params": ["0xf579f6f1040b60b48fc4aab2237b5e6aa36bc958"],
+                                        "id": 1
+                                      }' https://mantis-testnet-faucet.mantis.ws
 sleep 600 && ./$0 &
 
