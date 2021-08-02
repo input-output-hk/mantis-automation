@@ -9,6 +9,7 @@ steps:
       - "host=e2e.mantis.ws"
     concurrency: 1
     concurrency_group: 'erc20-kevm'
+    concurrency_group: 'erc20-pr'
   
   - wait: 
       continue_on_failure: false
@@ -24,6 +25,7 @@ steps:
       BUILDKITE_CLEAN_CHECKOUT: false
     concurrency: 1
     concurrency_group: 'erc20-kevm'
+    concurrency_group: 'erc20-pr'
 
   - wait: 
       continue_on_failure: false
@@ -41,3 +43,4 @@ steps:
       BUILDKITE_CLEAN_CHECKOUT: false
     concurrency: 1
     concurrency_group: 'erc20-kevm'
+    concurrency_group: 'erc20-pr'

@@ -9,3 +9,4 @@ then
 	ps aux | grep pottery-kevm | head -n 1 | awk '{print $2}' | xargs sudo kill
 fi
 exit 0
+
