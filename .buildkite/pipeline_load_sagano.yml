@@ -16,3 +16,4 @@ steps:
       - "host=e2e.mantis.ws"
     artifact_paths: 
       - "performance/caliper/caliper-benchmarks/report.html"
+    timeout_in_minutes: 60
