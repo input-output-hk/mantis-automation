@@ -4,18 +4,14 @@ env:
 steps:
   - label: "ERC20"
     command: 
-      -  "git clone https://github.com/OpenZeppelin/openzeppelin-contracts.git"
-      -  "wait $! && cp smartcontracts/openzeppelin/* openzeppelin-contracts/"
-      -  "wait $! && cd openzeppelin-contracts"
-      -  "wait $! && . ~/.profile"
-      -  "wait $! && nvm use v14.17.0"
-      -  "wait $! && npm install @nomiclabs/hardhat-solhint"
-      -  "wait $! && npm install"
-      -  "wait $! && npm install mocha mochawesome"
-      -  "wait $! && npx hardhat --network staging test test/token/ERC20/ERC20.test.js"
+      -  "smartcontracts/openzeppelin/run_erc20_tests.sh staging"
     agents:
       - "host=e2e.mantis.ws"
-  
+    retry:
+      automatic:
+        - exit_status: 3
+          limit: 5
+
   - wait: 
       continue_on_failure: true
   
@@ -32,3 +28,4 @@ steps:
       -  "openzeppelin-contracts/mochawesome-report.tar"
     env:
       BUILDKITE_CLEAN_CHECKOUT: false
+
