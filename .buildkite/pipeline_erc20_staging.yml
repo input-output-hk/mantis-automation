@@ -4,14 +4,10 @@ env:
 steps:
   - label: "ERC20"
     command: 
-      -  "smartcontracts/openzeppelin/run_erc20_tests.sh sagano"
+      -  "smartcontracts/openzeppelin/run_erc20_tests.sh staging"
     agents:
       - "host=e2e.mantis.ws"
-    retry:
-      automatic:
-        - exit_status: 3
-          limit: 5
-
+  
   - wait: 
       continue_on_failure: true
   
