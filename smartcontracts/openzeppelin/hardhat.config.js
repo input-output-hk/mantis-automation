@@ -49,7 +49,7 @@ module.exports = {
 		},
 		staging: {
 			blockGasLimit: 8000000,
-			url: 'https://mantis-staging-miner-0.mantis.ws',
+			url: 'https://mantis-staging-passive-0.mantis.ws',
 			accounts: {mnemonic: mnemonic}
 		}
   },
