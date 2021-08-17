@@ -1,4 +1,4 @@
-{ system ? builtins.currentSystem, sources ? import ./sources.nix, src ? ../. }:
+{ system ? builtins.currentSystem, sources ? import ../nix/sources.nix, src ? ../. }:
 let
   # we need to filter out the nix files in this repository as they will
   # affect the fixed derivation calculation from sbt-derivation
