@@ -3,7 +3,7 @@
 with cfg.steps.commands;
 let 
 	commonAttrs = {
-		agents.queue = "e2e.mantis.ws";
+		agents.host = "e2e.mantis.ws";
 	};
 in
 {
