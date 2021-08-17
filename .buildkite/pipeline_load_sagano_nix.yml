@@ -1,0 +1,9 @@
+steps:
+  - label: ":nix::point_right::pipeline:"
+    command: |
+      export NIX_PATH="nixpkgs=$(nix-instantiate --eval --strict --json --read-write-mode -E '(import nix/sources.nix).nixpkgs' | tr -d '"')"
+      nix-instantiate --eval --strict --json --expr '(import ./.buildkite { pipeline = ./.buildkite/pipeline.nix; })' \
+      | buildkite-agent pipeline upload --no-interpolation
+    agents:
+      queue: e2e.mantis.ws
+    timeout_in_minutes: 60
