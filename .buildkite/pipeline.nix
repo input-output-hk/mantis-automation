@@ -4,6 +4,9 @@ with cfg.steps.commands;
 let 
 	commonAttrs = {
 		agents.host = "e2e.mantis.ws";
+    env = ''
+      BUILDKITE_CLEAN_CHECKOUT: "false"
+    ''
 	};
 in
 {
