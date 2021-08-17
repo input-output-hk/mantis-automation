@@ -5,5 +5,5 @@ steps:
       nix-instantiate --eval --strict --json --expr '(import ./.buildkite { pipeline = ./.buildkite/pipeline.nix; })' \
       | buildkite-agent pipeline upload --no-interpolation
     agents:
-      queue: e2e.mantis.ws
+      host: e2e.mantis.ws
     timeout_in_minutes: 60
