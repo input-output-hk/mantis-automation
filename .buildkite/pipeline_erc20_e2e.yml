@@ -1,0 +1,31 @@
+env:
+  BUILDKITE_CLEAN_CHECKOUT: true
+
+steps:
+  - label: "ERC20"
+    command: 
+      -  "smartcontracts/openzeppelin/run_erc20_tests.sh e2e"
+    agents:
+      - "host=e2e.mantis.ws"
+    retry:
+      automatic:
+        - exit_status: 3
+          limit: 5
+
+  - wait: 
+      continue_on_failure: true
+  
+  - label: "ERC20 report"
+    command:
+      -  "pwd && ls"
+      -  "cd openzeppelin-contracts"
+      -  "tar cvf mochawesome-report.tar mochawesome-report"
+    plugins:
+      - 'uber-workflow/run-without-clone'
+    agents:
+      -  "host=e2e.mantis.ws"
+    artifact_paths: 
+      -  "openzeppelin-contracts/mochawesome-report.tar"
+    env:
+      BUILDKITE_CLEAN_CHECKOUT: false
+

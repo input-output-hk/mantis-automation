@@ -51,6 +51,11 @@ module.exports = {
 			blockGasLimit: 8000000,
 			url: 'https://mantis-staging-passive-0.mantis.ws',
 			accounts: {mnemonic: mnemonic}
+		},
+		e2e: {
+			blockGasLimit: 8000000,
+			url: 'https://mantis-e2e-passive-0.mantis.ws',
+			accounts: {mnemonic: mnemonic}
 		}
   },
   gasReporter: {
