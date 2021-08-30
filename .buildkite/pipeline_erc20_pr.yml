@@ -58,3 +58,10 @@ steps:
       -  "openzeppelin-contracts/mochawesome-report.tar"
     env:
       BUILDKITE_CLEAN_CHECKOUT: "false"
+
+notify:
+  - slack: "#etc_dev_def_team"
+    if: |
+      build.source == "schedule" &&
+      build.state == "finished" &&
+      build.branch == "main"
