@@ -37,6 +37,10 @@
 #  - HIVE_SKIP_POW                if set, skip PoW verification during block import
 #  - HIVE_LOGLEVEL		          client loglevel (0-5)
 
+#Remove in production
+source /setup_env.sh
+#
+
 # Immediately abort the script on any error encountered
 set -e
 
@@ -70,10 +74,13 @@ translate_loglevel () {
 	esac
 }
 
-MANTIS_DIR=$1
+MANTIS_DIR=/root/mantis-dist/
 POTTERY_CONF=$MANTIS_DIR/conf/pottery.conf
 POTTERY_CHAIN=$MANTIS_DIR/conf/chains/pottery-chain.conf
 ETC_CHAIN=$MANTIS_DIR/conf/chains/etc-chain.conf
+
+# Set RPC port to 8545
+echo -e "mantis {\n  rpc {\n    http {\n      port = 8545\n    }\n  }\n}" >> $POTTERY_CONF
 
 # Disable metrics for pottery
 sed -i "s/\senabled = true/\tenabled = false/g" $POTTERY_CONF
