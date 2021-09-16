@@ -189,3 +189,17 @@ fi
 if [ $HIVE_FORK_BERLIN != "" ]; then
 	echo "berlin-block-number = \"$HIVE_FORK_BERLIN\"" >> $POTTERY_CHAIN
 fi
+
+set +e
+
+mv /genesis.json /genesis-input.json
+jq -f /mapper.jq /genesis-input.json > /genesis.json
+
+echo "Supplied genesis state:"
+cat /genesis.json
+
+#mv /genesis.json $MANTIS_DIR/conf/chains/pottery-genesis.json
+
+set -e
+echo "Running mantis client"
+$MANTIS_DIR/bin/mantis-launcher pottery
