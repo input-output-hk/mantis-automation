@@ -139,13 +139,14 @@ fi
 
 # Remove bootstrap-nodes stanza from pottery
 sed -z 's/bootstrap-nodes[^]]*]//' $POTTERY_CHAIN > /tmp/pottery-chain.conf
+echo -e "\n" >> /tmp/pottery-chain.conf
 mv /tmp/pottery-chain.conf $POTTERY_CHAIN
 
 # Add Hive bootstrap node
 if [ "$HIVE_BOOTNODE" != "" ]; then
-	echo -e "\nbootstrap-nodes = [\"$HIVE_BOOTNODE\"]" >> $POTTERY_CHAIN
+	echo -e "\nbootstrap-nodes = [\"$HIVE_BOOTNODE\"]\n" >> $POTTERY_CHAIN
 else
-	echo -e "\nbootstrap-nodes = []" >> $POTTERY_CHAIN 
+	echo -e "\nbootstrap-nodes = []]n" >> $POTTERY_CHAIN 
 fi
 
 if [ $HIVE_FORK_HOMESTEAD != "" ]; then
@@ -155,6 +156,7 @@ fi
 if [ $HIVE_FORK_DAO_BLOCK != "" ]; then
 	grep -zo "dao[^}]*}" $ETC_CHAIN >> $POTTERY_CHAIN
 	echo -e "\n" >> $POTTERY_CHAIN
+  sed -i "s/\x0//g" $POTTERY_CHAIN
 	sed -i "s/fork-block-number = \"[0-9]*\"/fork-block-number = \"$HIVE_FORK_DAO_BLOCK\"/g" $POTTERY_CHAIN
 fi
 
