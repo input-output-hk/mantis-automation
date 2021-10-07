@@ -38,7 +38,7 @@
 #  - HIVE_LOGLEVEL		          client loglevel (0-5)
 
 #Remove in production
-source /setup_env.sh
+#source /setup_env.sh
 #
 
 # Immediately abort the script on any error encountered
@@ -114,6 +114,7 @@ fi
 
 if [ "$HIVE_CHAIN_ID" != "" ]; then
 
+	HIVE_CHAIN_ID=$(($HIVE_CHAIN_ID%127))
 	# Convert decimal chain id to hex
 	HEX_CHAIN_ID=$( printf "%x" $HIVE_CHAIN_ID )
 
@@ -146,7 +147,7 @@ mv /tmp/pottery-chain.conf $POTTERY_CHAIN
 if [ "$HIVE_BOOTNODE" != "" ]; then
 	echo -e "\nbootstrap-nodes = [\"$HIVE_BOOTNODE\"]\n" >> $POTTERY_CHAIN
 else
-	echo -e "\nbootstrap-nodes = []]n" >> $POTTERY_CHAIN 
+	echo -e "\nbootstrap-nodes = []\n" >> $POTTERY_CHAIN 
 fi
 
 if [ $HIVE_FORK_HOMESTEAD != "" ]; then

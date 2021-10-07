@@ -15,4 +15,4 @@ if [ ! -f hive ]; then
 go build
 fi
 
-./hive --sim obft-simulator --client mantis
+./hive --sim devp2p/eth --client mantis
